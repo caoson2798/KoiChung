@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_summary"
+        android:icon="@mipmap/ic_summary2x"
+        android:title="Thống kê" />
+
+    <item
+        android:id="@+id/nav_contract"
+        android:icon="@mipmap/ic_contract2x"
+        android:title="Hợp đồng" />
+
+    <item
+        android:id="@+id/nav_batch"
+        android:icon="@mipmap/ic_batch2x"
+        android:title="Lô hàng" />
+    <item
+        android:id="@+id/nav_order"
+        android:icon="@mipmap/ic_order2x"
+        android:title="Đơn hàng" />
+    <item
+        android:id="@+id/nav_agent"
+        android:icon="@mipmap/ic_agency2x"
+        android:title="Đại lý" />
+
+</menu>

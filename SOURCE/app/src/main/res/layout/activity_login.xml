@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ViewController.LoginActivity">
+    <ImageView
+        android:scaleType="fitXY"
+        android:src="@mipmap/img_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <LinearLayout
+        android:layout_marginTop="100dp"
+        android:padding="20sp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:fontFamily="@font/chalkduster"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textSize="30sp"
+            android:textColor="#fff"
+            android:text="KOI CHUNG"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:padding="20dp"
+            android:background="@drawable/bg_login"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:textColor="#fff"
+                android:singleLine="true"
+                android:layout_marginTop="20dp"
+                android:padding="10dp"
+                android:background="@drawable/bg_login"
+                android:id="@+id/edt_user"
+                android:textColorHint="#fff"
+                android:hint="Tên đăng nhập"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <EditText
+                android:textColor="#fff"
+                android:singleLine="true"
+                android:inputType="textPassword"
+                android:layout_marginTop="10dp"
+                android:padding="10dp"
+                android:background="@drawable/bg_login"
+                android:id="@+id/edt_pass"
+                android:textColorHint="#fff"
+                android:hint="Mật khẩu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <Button
+                android:textStyle="bold"
+                android:textColor="#8BFF00"
+                android:background="@android:color/transparent"
+                android:id="@+id/btn_login"
+                android:layout_gravity="center"
+                android:text="- Đăng nhập -"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>
