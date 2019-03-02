@@ -3,9 +3,9 @@ package com.example.koichung.Model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.io.Serializable;
+import java.util.ArrayList;
 
-public class LoginResult implements Serializable {
+public class BatchRespone {
     @SerializedName("$id")
     @Expose
     public String $id;
@@ -17,7 +17,7 @@ public class LoginResult implements Serializable {
     public Integer code;
     @SerializedName("result")
     @Expose
-    public Login result;
+    public ArrayList<Batch> result = null;
     @SerializedName("message")
     @Expose
     public String message;
@@ -46,11 +46,11 @@ public class LoginResult implements Serializable {
         this.code = code;
     }
 
-    public Login getResult() {
+    public ArrayList<Batch> getResult() {
         return result;
     }
 
-    public void setResult(Login result) {
+    public void setResult(ArrayList<Batch> result) {
         this.result = result;
     }
 

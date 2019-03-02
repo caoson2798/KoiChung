@@ -2,6 +2,7 @@ package com.example.koichung.ViewController.Base;
 
 
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -19,6 +20,7 @@ public abstract class FragmentWithTab extends BaseFragment {
     TabLayout tabLayout;
     ViewPager viewPager;
     protected ViewPageAdapter pageAdapter;
+    FloatingActionButton fab;
     public FragmentWithTab() {
         // Required empty public constructor
     }
@@ -36,7 +38,8 @@ public abstract class FragmentWithTab extends BaseFragment {
     private void init() {
         tabLayout=mRootView.findViewById(R.id.tab);
         viewPager=mRootView.findViewById(R.id.vp);
-        pageAdapter=new ViewPageAdapter(getChildFragmentManager());
+        fab=mRootView.findViewById(R.id.fab);
+        pageAdapter=new ViewPageAdapter(getFragmentManager());
         configAdapter();
         viewPager.setAdapter(pageAdapter);
         tabLayout.setupWithViewPager(viewPager);

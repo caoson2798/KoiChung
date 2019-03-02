@@ -1,4 +1,4 @@
-package com.example.koichung.ViewController;
+package com.example.koichung;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -8,15 +8,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.koichung.MainActivity;
-import com.example.koichung.Model.LoginResult;
+import com.example.koichung.Model.LoginRespone;
 import com.example.koichung.Network.APIServer;
 import com.example.koichung.Network.RetrofitClient;
-import com.example.koichung.R;
 import com.example.koichung.Util.AppConfig;
 import com.example.koichung.Util.Util;
 import com.example.koichung.ViewController.Base.BaseActivity;
-import com.google.gson.JsonObject;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -59,9 +56,9 @@ public class LoginActivity extends BaseActivity {
         Util.baseJson();
         Util.jsonObject.addProperty("username",user);
         Util.jsonObject.addProperty("password",pass);
-        RetrofitClient.getCilent().create(APIServer.class).getUser(Util.jsonObject).enqueue(new Callback<LoginResult>() {
+        RetrofitClient.getCilent().create(APIServer.class).getUser(Util.jsonObject).enqueue(new Callback<LoginRespone>() {
             @Override
-            public void onResponse(Call<LoginResult> call, Response<LoginResult> response) {
+            public void onResponse(Call<LoginRespone> call, Response<LoginRespone> response) {
                 dialog.dismiss();
                 if (response.body().getStatus()==1){
                     AppConfig.setUserID(LoginActivity.this,response.body().getResult().getUserID());
@@ -74,7 +71,7 @@ public class LoginActivity extends BaseActivity {
             }
 
             @Override
-            public void onFailure(Call<LoginResult> call, Throwable t) {
+            public void onFailure(Call<LoginRespone> call, Throwable t) {
 
             }
         });

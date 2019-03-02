@@ -5,10 +5,12 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
+import com.example.koichung.ViewController.Batch.BatchFragment;
+
 import java.util.ArrayList;
 
 public class ViewPageAdapter extends FragmentStatePagerAdapter {
-    ArrayList<Fragment> mListFrament=new ArrayList<>();
+    ArrayList<BaseFragment> mListFrament=new ArrayList<>();
     ArrayList<String> mListTitle=new ArrayList<>();
     public ViewPageAdapter(FragmentManager fm) {
         super(fm);
@@ -18,7 +20,7 @@ public class ViewPageAdapter extends FragmentStatePagerAdapter {
     public Fragment getItem(int i) {
         return mListFrament.get(i);
     }
-    public void addFragment(Fragment fragment, String title) {
+    public void addFragment(BaseFragment fragment, String title) {
         mListFrament.add(fragment);
         mListTitle.add(title);
     }

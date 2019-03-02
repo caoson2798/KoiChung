@@ -1,13 +1,9 @@
 package com.example.koichung.ViewController.Batch;
 
 
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
-import com.example.koichung.R;
+import com.example.koichung.ViewController.Base.FragmentWithListView;
 import com.example.koichung.ViewController.Base.FragmentWithTab;
 
 /**
@@ -18,9 +14,9 @@ public class BatchFragment extends FragmentWithTab {
 
     @Override
     protected void configAdapter() {
-        pageAdapter.addFragment(ListBatchFragment.getInstance(),"Tất cả");
-        pageAdapter.addFragment(ListBatchFragment.getInstance(),"Có HĐ");
-        pageAdapter.addFragment(ListBatchFragment.getInstance(),"Chưa HĐ");
+        pageAdapter.addFragment(ListBatchFragment.newInstance(FragmentWithListView.TAB_ALL_BATCH),"Tất cả");
+        pageAdapter.addFragment(ListBatchFragment.newInstance(FragmentWithListView.TAB_HAVE_BILL),"Có HĐ");
+        pageAdapter.addFragment(ListBatchFragment.newInstance(FragmentWithListView.TAB_NOT_BILL),"Chưa HĐ");
     }
     public static BatchFragment getInstance(){
         if (batchFragment==null){
