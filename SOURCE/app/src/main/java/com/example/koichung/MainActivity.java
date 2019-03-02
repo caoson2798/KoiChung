@@ -30,11 +30,11 @@ public class MainActivity extends AppCompatActivity {
 
                     return true;
                 case R.id.nav_batch:
-                    if (getFragmentManager().findFragmentByTag(BatchFragment.class.getName()) != null) {
-                        transaction.remove(BatchFragment.getInstance());
-                    }else {
-                        transaction.replace(R.id.parent,BatchFragment.getInstance()).commit();
-                    }
+//                    if (getFragmentManager().findFragmentByTag(BatchFragment.class.getName()) != null) {
+//                        transaction.remove(BatchFragment.getInstance());
+//                    }else {
+//                        transaction.replace(R.id.parent,BatchFragment.getInstance()).commit();
+//                    }
 
                     return true;
                 case R.id.nav_order:
