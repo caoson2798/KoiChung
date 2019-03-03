@@ -12,10 +12,11 @@ import android.widget.TextView;
 
 import com.example.koichung.ViewController.Base.BaseFragment;
 import com.example.koichung.ViewController.Batch.BatchFragment;
+import com.example.koichung.ViewController.Contract.ContractFragment;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView mTextMessage;
+    private TextView txtTitle;
     Toolbar toolbar;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -28,27 +29,25 @@ public class MainActivity extends AppCompatActivity {
             BaseFragment fragment = null;
             switch (item.getItemId()) {
                 case R.id.nav_summary:
-
+                    txtTitle.setText("Thống kê");
                     return true;
                 case R.id.nav_contract:
-
-                    return true;
+                    txtTitle.setText("Hợp đồng");
+                    fragment= new ContractFragment();
+                    break;
                 case R.id.nav_batch:
-                    getSupportActionBar().setTitle("Lô hàng");
-                    fragment = BatchFragment.getInstance();
-                    transaction.replace(R.id.parent, fragment);
-                    transaction.addToBackStack(null);
-                    transaction.commit();
-                    return true;
+                    txtTitle.setText("Lô hàng");
+                    fragment =new BatchFragment();
+                    break;
                 case R.id.nav_order:
-
-                    return true;
+                    txtTitle.setText("Đơn hàng");
+                    break;
                 case R.id.nav_agent:
-
-                    return true;
+                    txtTitle.setText("Đại lý");
+                   break;
             }
-
-            return false;
+            transaction.replace(R.id.parent, fragment).commit();
+            return true;
         }
     };
 
@@ -58,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        txtTitle=toolbar.findViewById(R.id.txt_title);
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }

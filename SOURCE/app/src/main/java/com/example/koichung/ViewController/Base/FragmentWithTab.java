@@ -39,7 +39,7 @@ public abstract class FragmentWithTab extends BaseFragment {
         tabLayout=mRootView.findViewById(R.id.tab);
         viewPager=mRootView.findViewById(R.id.vp);
         fab=mRootView.findViewById(R.id.fab);
-        pageAdapter=new ViewPageAdapter(getFragmentManager());
+        pageAdapter=new ViewPageAdapter(getChildFragmentManager());
         configAdapter();
         viewPager.setAdapter(pageAdapter);
         tabLayout.setupWithViewPager(viewPager);

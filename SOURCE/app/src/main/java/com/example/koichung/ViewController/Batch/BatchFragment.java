@@ -1,6 +1,7 @@
 package com.example.koichung.ViewController.Batch;
 
 
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
 import com.example.koichung.ViewController.Base.FragmentWithListView;

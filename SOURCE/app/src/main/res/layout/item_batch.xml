@@ -163,10 +163,10 @@
                     android:id="@+id/txt_note"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=" KOL12124"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="21sp"
-                    android:textStyle="bold" />
+                    android:text=""
+                    android:textColor="#464646"
+                    android:textSize="14sp"
+                    android:textStyle="italic" />
             </TableRow>
 
             <TableRow
@@ -185,9 +185,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text=""
-                    android:textColor="@color/colorBlack"
-                    android:textSize="21sp"
-                    android:textStyle="bold" />
+                    android:textColor="#464646"
+                    android:textSize="14sp"
+                    android:textStyle="italic" />
             </TableRow>
         </TableLayout>
 
@@ -196,13 +196,14 @@
             android:layout_height="wrap_content">
 
             <TextView
+                android:textStyle="italic"
                 android:id="@+id/txt_day"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:text="02/03/2019"
-                android:textColor="@color/colorBlack"
-                android:textSize="14sp" />
+                android:textColor="#5E5E5E"
+                android:textSize="13sp" />
         </RelativeLayout>
 
     </LinearLayout>
