@@ -1,8 +1,10 @@
 package com.example.koichung.ViewController.Base;
 
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
@@ -16,36 +18,36 @@ import com.example.koichung.R;
  * A simple {@link Fragment} subclass.
  */
 public abstract class FragmentWithListView extends BaseFragment {
-    public static int TAB_ALL_BATCH=0;
-    public static int TAB_HAVE_BILL=1;
-    public static int TAB_NOT_BILL=2;
-    public int tpye;
-    protected ListView lvFag;
-    protected SwipeRefreshLayout swipeRefreshLayout;
-
     View mRootView;
+    protected ListView lvFrag;
+    public static final int ITEM_ALL=1;
+    public static final int ITEM_HAVE_CONTRACT=2;
+    public static final int ITEM_NOT_CONTRACT=3;
+    FloatingActionButton fab;
+    public int tpye;
+    public SwipeRefreshLayout swipeRefreshLayout;
     public FragmentWithListView() {
         // Required empty public constructor
     }
 
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        tpye=getArguments().getInt("tpye");
     }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        mRootView=inflater.inflate(R.layout.fragment_fragment_with_list_view, container, false);
-        intit();
+        mRootView=inflater.inflate(R.layout.fragment_with_tab, container, false);
+        init();
         return mRootView;
     }
 
-    private void intit() {
-        lvFag=mRootView.findViewById(R.id.lv_frag);
+    protected void init() {
+        setHasOptionsMenu(true);
         swipeRefreshLayout=mRootView.findViewById(R.id.sw_refresh);
+        lvFrag =mRootView.findViewById(R.id.lv_frag);
         swipeRefreshLayout.post(new Runnable() {
             @Override
             public void run() {
@@ -58,13 +60,23 @@ public abstract class FragmentWithListView extends BaseFragment {
                 getData();
             }
         });
-        setUpAdapter();
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                getData();
+            }
+        });
+        configAdapter();
+
+
     }
+
 
     protected void getData(){
         swipeRefreshLayout.setRefreshing(true);
+
     }
 
-    public abstract void setUpAdapter();
+    protected abstract void configAdapter();
 
 }

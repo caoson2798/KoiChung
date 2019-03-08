@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.roger.catloadinglibrary:catloadinglibrary:1.0.4@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/catloadinglibrary-1.0.4.aar/deb58ac8048cdb50d41fc02d4c1f3cd4/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/catloadinglibrary-1.0.4.aar/deb58ac8048cdb50d41fc02d4c1f3cd4/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/catloadinglibrary-1.0.4.aar/2f6186424eb0093f9554e9bd4b6ffd87/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/catloadinglibrary-1.0.4.aar/2f6186424eb0093f9554e9bd4b6ffd87/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/mnu_add"
+        android:icon="@mipmap/ic_add_square3x"
+        android:title="Item"
+        app:showAsAction="ifRoom|collapseActionView" />
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/mnu_all"
+            android:title="Tất cả" />
+        <item
+            android:id="@+id/mnu_wating_approve"
+            android:title="Chờ duyệt" />
+        <item
+            android:id="@+id/mnu_open"
+            android:title="Thực hiện" />
+        <item
+            android:id="@+id/mnu_complete"
+            android:title="Hoàn thành" />
+        <item
+            android:id="@+id/mnu_over_due"
+            android:title="Qúa hạn" />
+    </group>
+</menu>
