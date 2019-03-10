@@ -5,25 +5,50 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:card_view="http://schemas.android.com/tools">
-    <LinearLayout
-        android:orientation="vertical"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <TextView
-            android:id="@+id/txt_agency"
+            android:id="@+id/txt_all"
+            android:visibility="invisible"
+            android:padding="10dp"
             android:textStyle="bold"
+            android:text="Tất cả"
             android:textColor="@color/colorBlack"
             android:textSize="18sp"
-            android:text="Minh"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
-        <TextView
-            android:id="@+id/txt_address"
-            android:textColor="#CC1F1F1F"
-            android:text="Địa chỉ: "
-            android:textSize="16sp"
+        <LinearLayout
+            android:padding="10dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/txt_agency"
+                android:textStyle="bold"
+                android:textColor="@color/colorBlack"
+                android:textSize="18sp"
+                android:text="Minh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/txt_address"
+                android:textColor="#CC1F1F1F"
+                android:text="Địa chỉ: "
+                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <ImageView
+            android:visibility="invisible"
+            android:layout_margin="10dp"
+            android:id="@+id/img_check"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:paddingTop="10dp"
+            android:src="@drawable/ic_check" />
+    </RelativeLayout>
 
 </android.support.v7.widget.CardView>

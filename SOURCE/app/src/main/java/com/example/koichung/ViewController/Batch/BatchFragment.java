@@ -1,14 +1,12 @@
 package com.example.koichung.ViewController.Batch;
 
 
-import android.app.DatePickerDialog;
-import android.app.Dialog;
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.CheckBox;
 import android.widget.Toast;
 
 import com.example.koichung.Model.Batch;
@@ -83,6 +81,9 @@ public class BatchFragment extends FragmentWithListView  {
                 Util.jsonObject.addProperty("status", -1);
                 getDataBatch(Util.jsonObject);
                 break;
+            case R.id.mnu_add:
+                Intent intent=new Intent(getActivity(),AddBatchActivity.class);
+                getActivity().startActivity(intent);
 
         }
         item.setChecked(true);
@@ -94,6 +95,12 @@ public class BatchFragment extends FragmentWithListView  {
     protected void getData() {
         super.getData();
         getDataBatch(Util.jsonObject);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        getData();
     }
 
     private void getDataBatch(JsonObject jsonObject) {

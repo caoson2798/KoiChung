@@ -3,9 +3,7 @@ package com.example.koichung.Model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.io.Serializable;
-
-public class Agency implements Serializable {
+public class ListAgency {
     @SerializedName("$id")
     @Expose
     public String $id;
@@ -27,28 +25,6 @@ public class Agency implements Serializable {
     @SerializedName("phonenumber")
     @Expose
     public String phonenumber;
-    public boolean check=false;
-
-    public boolean isCheck() {
-        return check;
-    }
-
-    public void setCheck(boolean check) {
-        this.check = check;
-    }
-
-    public Agency() {
-    }
-
-    public Agency(String $id, Integer agencyID, String name, String userName, Integer role, String address, String phonenumber) {
-        this.$id = $id;
-        this.agencyID = agencyID;
-        this.name = name;
-        this.userName = userName;
-        this.role = role;
-        this.address = address;
-        this.phonenumber = phonenumber;
-    }
 
     public String get$id() {
         return $id;

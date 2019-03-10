@@ -7,11 +7,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.example.koichung.Model.Batch;
 import com.example.koichung.Model.Contract;
 import com.example.koichung.R;
-import com.example.koichung.ViewController.Batch.Adapter.BatchAdapter;
-import com.example.koichung.ViewController.Batch.BatchFragment;
 import com.example.koichung.ViewController.Contract.ContractFragment;
 
 import java.util.ArrayList;
@@ -77,7 +74,7 @@ public class ContractAdapter extends BaseAdapter {
             txtDayFunds.setText(contract.getDateFunds());
             txtDayComit.setText(contract.getDateCommit());
             txtDay.setText(contract.getCreateDate());
-            switch (contract.getAgencyID()){
+            switch (contract.getStatus()){
                 case ContractFragment.STATUS_WAITING_APPROVE:
                     txtStatus.setText("Chờ duyệt");
                     break;

@@ -7,15 +7,16 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.example.koichung.Model.Agency;
 import com.example.koichung.R;
 
 import java.util.ArrayList;
 
 public class SpinnerAgencyAdapter extends BaseAdapter {
-    ArrayList<String> arrData;
+    ArrayList<Agency> arrData;
     Context context;
 
-    public SpinnerAgencyAdapter(ArrayList<String> arrData, Context context) {
+    public SpinnerAgencyAdapter(ArrayList<Agency> arrData, Context context) {
         this.arrData = arrData;
         this.context = context;
     }
@@ -38,9 +39,9 @@ public class SpinnerAgencyAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         convertView= LayoutInflater.from(context).inflate(R.layout.item_sp_agency,parent,false);
-        String agency=arrData.get(position);
+        Agency agency=arrData.get(position);
         TextView txtAgency=convertView.findViewById(R.id.txt_agency_list);
-        txtAgency.setText(agency);
+        txtAgency.setText(agency.getName());
         return convertView;
     }
 }

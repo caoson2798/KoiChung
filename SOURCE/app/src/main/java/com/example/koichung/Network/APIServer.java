@@ -3,6 +3,7 @@ package com.example.koichung.Network;
 import com.example.koichung.Model.AgencyRespone;
 import com.example.koichung.Model.BatchRespone;
 import com.example.koichung.Model.ContractRespone;
+import com.example.koichung.Model.CreateBatchRespone;
 import com.example.koichung.Model.LoginRespone;
 import com.google.gson.JsonObject;
 
@@ -30,4 +31,10 @@ public interface APIServer {
     @POST("api/Service/GetListAgency")
     @Headers("Content-Type:application/json")
     Call<AgencyRespone> getAgency(@Body JsonObject jsonObject);
+
+    //create batch
+    @POST("api/Service/CreateBatch")
+    @Headers("Content-Type:application/json")
+    Call<CreateBatchRespone> createBatch(@Body JsonObject jsonObject);
+
 }

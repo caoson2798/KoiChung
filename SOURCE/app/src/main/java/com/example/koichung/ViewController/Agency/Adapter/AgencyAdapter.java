@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.koichung.Model.Agency;
@@ -51,15 +52,33 @@ public class AgencyAdapter extends BaseAdapter {
         return convertView;
     }
     class ViewHolder{
-        TextView txtAgency,txtAddress;
+        TextView txtAgency,txtAddress,txtAll;
+        ImageView imgCheck;
 
         public ViewHolder(View view) {
             txtAddress=view.findViewById(R.id.txt_address);
             txtAgency=view.findViewById(R.id.txt_agency);
+            txtAll=view.findViewById(R.id.txt_all);
+            imgCheck=view.findViewById(R.id.img_check);
         }
         public void setUpView(Agency agency){
             txtAgency.setText(agency.getUserName()+"("+agency.getName()+")");
             txtAddress.setText("Địa chỉ: "+agency.getAddress());
+            if (agency.getAgencyID()==0){
+                txtAll.setVisibility(View.VISIBLE);
+                txtAddress.setVisibility(View.INVISIBLE);
+                txtAgency.setVisibility(View.INVISIBLE);
+            }else {
+                txtAll.setVisibility(View.INVISIBLE);
+                txtAddress.setVisibility(View.VISIBLE);
+                txtAgency.setVisibility(View.VISIBLE);
+            }
+            if (agency.isCheck()){
+                imgCheck.setVisibility(View.VISIBLE);
+            }else {
+                imgCheck.setVisibility(View.INVISIBLE);
+            }
+
         }
     }
 }
