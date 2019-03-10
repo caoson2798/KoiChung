@@ -110,23 +110,27 @@ public class AddBatchActivity extends BaseActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.mnu_save:
-                batchID=edtBatchID.getText().toString();
-                count=Integer.parseInt(edtCount.getText().toString());
-                root=edtRoot.getText().toString();
-                dealer=edtDealer.getText().toString();
-                buyer=edtBuyer.getText().toString();
-                note=edtNote.getText().toString();
-                notePrivate=edtNotePrivate.getText().toString();
-                if (swShowWeb.isChecked()){
-                    showWeb =1;
-                }else {
-                    showWeb=0;
-                }
-                baseJsonAddBatch(batchID,count,root,dealer,buyer,note,notePrivate,arrAgencyID,showWeb);
-                getData(Util.jsonObject);
+                processAddBatch();
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void processAddBatch() {
+        batchID=edtBatchID.getText().toString();
+        count=Integer.parseInt(edtCount.getText().toString());
+        root=edtRoot.getText().toString();
+        dealer=edtDealer.getText().toString();
+        buyer=edtBuyer.getText().toString();
+        note=edtNote.getText().toString();
+        notePrivate=edtNotePrivate.getText().toString();
+        if (swShowWeb.isChecked()){
+            showWeb =1;
+        }else {
+            showWeb=0;
+        }
+        baseJsonAddBatch(batchID,count,root,dealer,buyer,note,notePrivate,arrAgencyID,showWeb);
+        getData(Util.jsonObject);
     }
 
     private void getData(JsonObject jsonObject) {
@@ -140,6 +144,8 @@ public class AddBatchActivity extends BaseActivity {
                 dialog.dismiss();
                 if (response.body().getStatus()==1){
                     finish();
+                }else {
+
                 }
                 Toast.makeText(AddBatchActivity.this,response.body().getMessage(),Toast.LENGTH_SHORT).show();
 

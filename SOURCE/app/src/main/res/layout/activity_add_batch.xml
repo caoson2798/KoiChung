@@ -96,7 +96,7 @@
             android:layout_height="wrap_content">
             <EditText
                 android:id="@+id/edt_buyer"
-
+                android:singleLine="true"
                 android:background="@drawable/bg_edit"
                 android:padding="10dp"
                 android:hint="Người mua"

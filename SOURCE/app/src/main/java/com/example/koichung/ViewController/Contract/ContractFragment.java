@@ -35,6 +35,8 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import static com.example.koichung.ViewController.Base.SelectActivity.CHOSSE_AGENCY_FOR_CONTRACT;
+import static com.example.koichung.ViewController.Base.SelectActivity.CHOSSE_BATCH_FOR_CONTRACT;
 import static com.example.koichung.ViewController.Base.SelectActivity.KEY_TPYE;
 
 public class ContractFragment extends FragmentWithListView implements DatePickerDialog.OnDateSetListener {
@@ -43,7 +45,7 @@ public class ContractFragment extends FragmentWithListView implements DatePicker
     public static final int STATUS_OPEN = 1;
     public static final int STATUS_COMPLETE = 2;
     public static final int STATUS_OVER_DUE = -2;
-    public String batchID = "0";
+    public int batchID = 0;
     String fromDateTime="08/29/2017";
     String agencyID="0";
     int status = 10;
@@ -116,7 +118,8 @@ public class ContractFragment extends FragmentWithListView implements DatePicker
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), SelectActivity.class);
-                intent.putExtra(KEY_TPYE, 0);
+                intent.putExtra("batchID",batchID);
+                intent.putExtra(KEY_TPYE, CHOSSE_AGENCY_FOR_CONTRACT);
                 startActivityForResult(intent, 113);
             }
         });
@@ -125,7 +128,9 @@ public class ContractFragment extends FragmentWithListView implements DatePicker
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), SelectActivity.class);
-                startActivity(intent);
+                intent.putExtra("status",status);
+                intent.putExtra(KEY_TPYE,CHOSSE_BATCH_FOR_CONTRACT);
+                startActivityForResult(intent,114);
             }
         });
         txtChosseDay.setOnClickListener(new View.OnClickListener() {
@@ -139,15 +144,18 @@ public class ContractFragment extends FragmentWithListView implements DatePicker
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
         String name;
         if (requestCode == 113 && data != null) {
             agencyID = String.valueOf(data.getIntExtra("agencyID", -1));
-            baseJsonContract(status,batchID,agencyID,fromDateTime);
             name = data.getStringExtra("nameAgency");
             txtAgency.setText(name);
-        } else {
         }
+        if (requestCode==114 & data!=null){
+            String code=data.getStringExtra("code");
+            batchID=data.getIntExtra("batchID",-1);
+            txtBatch.setText(code);
+        }
+        baseJsonContract(status,batchID,agencyID,fromDateTime);
         getData();
     }
 
@@ -211,7 +219,7 @@ public class ContractFragment extends FragmentWithListView implements DatePicker
         return super.onOptionsItemSelected(item);
     }
 
-    void baseJsonContract(int status,String _batchID,String _agencyID,String fromDateTime) {
+    void baseJsonContract(int status,int _batchID,String _agencyID,String fromDateTime) {
         Util.baseJson();
         Util.jsonObject.addProperty("userID", AppConfig.getUserID(getActivity()));
         Util.jsonObject.addProperty("status", status);
