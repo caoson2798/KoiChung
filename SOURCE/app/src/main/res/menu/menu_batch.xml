@@ -10,8 +10,9 @@
         android:checkableBehavior="single"
         app:showAsAction="always">
         <item
-            android:checked="true"
             android:id="@+id/mnu_all"
+            android:checked="true"
+            android:icon="@mipmap/ic_add_square2x"
             android:title="Tất cả"
             app:actionViewClass="android.widget.RadioButton" />
         <item

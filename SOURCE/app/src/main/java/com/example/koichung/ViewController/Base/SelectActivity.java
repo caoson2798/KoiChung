@@ -55,7 +55,15 @@ public class SelectActivity extends BaseActivity {
         if (style == CHOSSE_AGENCY_FOR_CONTRACT) {
             getSupportActionBar().setTitle("Chọn đại lý");
             baseJsonSelect();
+            baseJsonSelect();
             Util.jsonObject.addProperty("batchID",batchID);
+            getDataAgency(Util.jsonObject);
+        }
+        if (style == CREATE_BATCH) {
+            getSupportActionBar().setTitle("Chọn đại lý");
+            baseJsonSelect();
+            baseJsonSelect();
+            Util.jsonObject.addProperty("batchID",0);
             getDataAgency(Util.jsonObject);
         }
         if (style == CHOSSE_BATCH_FOR_CONTRACT) {

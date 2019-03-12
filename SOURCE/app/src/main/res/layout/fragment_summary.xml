@@ -6,7 +6,7 @@
     <TextView
         android:textColor="@color/colorBlack"
         android:textSize="20sp"
-        android:text="THông kê"
+        android:text="Màn hình này chưa xử lý đề nghị chuyển màn hình khác xem, ko đc cười đùa!!!!"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 </LinearLayout>
