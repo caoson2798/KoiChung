@@ -19,11 +19,6 @@ import com.example.koichung.ViewController.Batch.BatchFragment;
 import com.example.koichung.ViewController.Contract.ContractFragment;
 import com.example.koichung.ViewController.Summary.SummaryFragment;
 
-import static com.example.koichung.ViewController.Contract.ContractFragment.day;
-import static com.example.koichung.ViewController.Contract.ContractFragment.month;
-import static com.example.koichung.ViewController.Contract.ContractFragment.myDateListener;
-import static com.example.koichung.ViewController.Contract.ContractFragment.year;
-
 
 public class MainActivity extends BaseActivity {
 
@@ -38,7 +33,7 @@ public class MainActivity extends BaseActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             FragmentManager fragmentManager = getSupportFragmentManager();
             FragmentTransaction transaction = fragmentManager.beginTransaction();
-            BaseFragment fragment = new BatchFragment();
+            BaseFragment fragment = new BaseFragment();
             switch (item.getItemId()) {
                 case R.id.nav_summary:
                     getSupportActionBar().setTitle("Thông kê");
@@ -60,6 +55,7 @@ public class MainActivity extends BaseActivity {
                     fragment = new AgencyFragment();
                     break;
             }
+            item.setChecked(true);
             transaction.replace(R.id.parent, fragment).commit();
             return true;
         }
@@ -79,14 +75,6 @@ public class MainActivity extends BaseActivity {
 
     }
 
-    @Override
-    protected Dialog onCreateDialog(int id) {
-        // TODO Auto-generated method stub
-        if (id == 999) {
-            return new DatePickerDialog(this,
-                    myDateListener, year, month, day);
-        }
-        return null;
-    }
+
 
 }

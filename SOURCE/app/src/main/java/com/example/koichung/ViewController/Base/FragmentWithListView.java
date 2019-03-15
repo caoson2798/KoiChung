@@ -1,14 +1,18 @@
 package com.example.koichung.ViewController.Base;
 
 
+import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.AbsListView;
 import android.widget.ListView;
 
 import com.example.koichung.R;
@@ -65,6 +69,7 @@ public abstract class FragmentWithListView extends BaseFragment {
                 getData();
             }
         });
+        ViewCompat.setNestedScrollingEnabled(lvFrag, true);
         configAdapter();
 
 

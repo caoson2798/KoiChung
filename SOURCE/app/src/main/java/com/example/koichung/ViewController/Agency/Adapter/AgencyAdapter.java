@@ -62,7 +62,7 @@ public class AgencyAdapter extends BaseAdapter {
             imgCheck=view.findViewById(R.id.img_check);
         }
         public void setUpView(Agency agency){
-            txtAgency.setText(agency.getUserName()+"("+agency.getName()+")");
+            txtAgency.setText(agency.getName()+"("+agency.getUserName()+")");
             txtAddress.setText("Địa chỉ: "+agency.getAddress());
             if (agency.getAgencyID()==0){
                 txtAll.setVisibility(View.VISIBLE);

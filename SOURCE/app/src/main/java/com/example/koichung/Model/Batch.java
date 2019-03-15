@@ -50,6 +50,11 @@ public class Batch {
     @Expose
     public Integer isHaveContract;
 
+    public Batch(Integer batchID, String code) {
+        this.batchID = batchID;
+        this.code=code;
+    }
+
     public String get$id() {
         return $id;
     }

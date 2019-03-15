@@ -15,10 +15,13 @@
         android:layout_height="match_parent"></FrameLayout>
 
     <android.support.design.widget.BottomNavigationView
+        app:labelVisibilityMode="labeled"
         android:id="@+id/navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="0dp"
+        app:itemTextAppearanceActive="@style/BottomNavigationView.Active"
+        app:itemTextAppearanceInactive="@style/BottomNavigationView"
         android:background="?android:attr/windowBackground"
         app:menu="@menu/navigation" />
 

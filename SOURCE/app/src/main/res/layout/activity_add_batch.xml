@@ -14,16 +14,16 @@
         android:layout_height="match_parent">
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"            android:layout_height="wrap_content">
             <EditText
+                android:paddingLeft="12dp"
                 android:id="@+id/edt_batch_id"
-                android:background="@drawable/bg_edit"
-                android:padding="10dp"
                 android:hint="Mã lô hàng"
                 android:autofillHints="@string/app_name"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="56dp" />
         </android.support.design.widget.TextInputLayout>
+
         <LinearLayout
             android:id="@+id/ln_agency"
             android:gravity="center"
@@ -48,90 +48,103 @@
         </LinearLayout>
 
         <android.support.design.widget.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_marginTop="35dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <EditText
-                android:singleLine="true"
-                android:inputType="number"
                 android:id="@+id/edt_count"
-                android:background="@drawable/bg_edit"
-                android:padding="10dp"
-                android:hint="Số lượng"
-                android:autofillHints="@string/app_name"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="56dp"
+                android:autofillHints="@string/app_name"
+                android:background="@drawable/bg_edit"
+                android:hint="Số lượng"
+                android:inputType="number"
+                android:paddingLeft="12dp"
+                android:padding="10dp"
+                android:singleLine="true" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
             android:layout_marginTop="35dp"
             android:layout_width="match_parent"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_height="wrap_content">
 
             <EditText
-                android:singleLine="true"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:id="@+id/edt_root"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="56dp"
+                android:paddingLeft="12dp"
                 android:background="@drawable/bg_edit"
                 android:hint="Nguồn gốc"
-                android:padding="10dp" />
+                android:singleLine="true" />
         </android.support.design.widget.TextInputLayout>
         <android.support.design.widget.TextInputLayout
             android:layout_marginTop="35dp"
             android:layout_width="match_parent"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_height="wrap_content">
             <EditText
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:singleLine="true"
                 android:id="@+id/edt_dealer"
                 android:background="@drawable/bg_edit"
-                android:padding="10dp"
+                android:paddingLeft="12dp"
                 android:hint="Người bán"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="56dp" />
         </android.support.design.widget.TextInputLayout>
         <android.support.design.widget.TextInputLayout
             android:layout_marginTop="35dp"
             android:layout_width="match_parent"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_height="wrap_content">
             <EditText
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:id="@+id/edt_buyer"
                 android:singleLine="true"
                 android:background="@drawable/bg_edit"
-                android:padding="10dp"
+                android:paddingLeft="12dp"
                 android:hint="Người mua"
                 android:autofillHints="@string/app_name"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="56dp" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
             android:layout_marginTop="35dp"
             android:layout_width="match_parent"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_height="wrap_content">
             <EditText
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:singleLine="true"
                 android:id="@+id/edt_note"
                 android:background="@drawable/bg_edit"
-                android:padding="10dp"
+                android:paddingLeft="12dp"
                 android:hint="Ghi chú"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="56dp" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
             android:layout_marginTop="35dp"
             android:layout_width="match_parent"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_height="wrap_content">
             <EditText
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:singleLine="true"
                 android:id="@+id/edt_note_private"
                 android:background="@drawable/bg_edit"
-                android:padding="10dp"
+                android:paddingLeft="12dp"
                 android:hint="Ghi chú riêng"
                 android:autofillHints="@string/app_name"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="56dp" />
 
         </android.support.design.widget.TextInputLayout>
         <Switch
@@ -146,6 +159,4 @@
 
 
     </LinearLayout>
-
-
 </ScrollView>
