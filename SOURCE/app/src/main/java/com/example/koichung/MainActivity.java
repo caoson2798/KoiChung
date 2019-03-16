@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -17,11 +18,13 @@ import com.example.koichung.ViewController.Base.BaseActivity;
 import com.example.koichung.ViewController.Base.BaseFragment;
 import com.example.koichung.ViewController.Batch.BatchFragment;
 import com.example.koichung.ViewController.Contract.ContractFragment;
+import com.example.koichung.ViewController.Order.OrderFragment;
 import com.example.koichung.ViewController.Summary.SummaryFragment;
 
 
 public class MainActivity extends BaseActivity {
 
+    private static final int MENU_ITEM_ITEM1 = 1;
     private TextView txtTitle;
 
     ImageView imgLogout;
@@ -49,9 +52,10 @@ public class MainActivity extends BaseActivity {
                     break;
                 case R.id.nav_order:
                     getSupportActionBar().setTitle("Đơn hàng");
+                    fragment=new OrderFragment();
                     break;
-                case R.id.nav_agent:
-                    getSupportActionBar().setTitle("Đại lý");
+                case MENU_ITEM_ITEM1:
+                    getSupportActionBar().setTitle("Danh sách đại lý");
                     fragment = new AgencyFragment();
                     break;
             }
@@ -61,6 +65,7 @@ public class MainActivity extends BaseActivity {
         }
     };
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,13 +73,10 @@ public class MainActivity extends BaseActivity {
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         navigation.setSelectedItemId(R.id.nav_summary);
-        setupView();
+        Menu menu=navigation.getMenu();
+        MenuItem menuItem=menu.add(Menu.NONE, MENU_ITEM_ITEM1, Menu.NONE, "Đại lý");
+        menuItem.setIcon(R.mipmap.ic_agency2x);
+
     }
-
-    private void setupView() {
-
-    }
-
-
 
 }

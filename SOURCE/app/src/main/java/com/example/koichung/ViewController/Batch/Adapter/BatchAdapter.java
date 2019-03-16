@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.example.koichung.Model.Batch;
 import com.example.koichung.R;
+import com.example.koichung.Util.Util;
 
 import java.util.ArrayList;
 
@@ -66,8 +67,8 @@ public class BatchAdapter extends BaseAdapter {
         }
         public void setUpView(Batch batch){
             txtBatchID.setText(batch.getCode());
-            txtCount.setText(batch.getCount()+"");
-            txtLastCount.setText(batch.getLastCount()+"");
+            txtCount.setText(Util.formatMoney(batch.getCount())+"");
+            txtLastCount.setText(Util.formatMoney(batch.getLastCount())+"");
             txtRoot.setText(batch.getRoot());
             txtDealer.setText(batch.getDealer());
             txtBuyer.setText(batch.getBuyer());

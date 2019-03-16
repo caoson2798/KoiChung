@@ -9,7 +9,8 @@ import android.widget.TextView;
 
 import com.example.koichung.Model.Contract;
 import com.example.koichung.R;
-import com.example.koichung.ViewController.Contract.ContractFragment;
+import com.example.koichung.Util.AppConfig;
+import com.example.koichung.Util.Util;
 
 import java.util.ArrayList;
 
@@ -70,21 +71,21 @@ public class ContractAdapter extends BaseAdapter {
             txtAgency.setText(contract.getAgencyName());
             txtLastCount.setText(contract.getQty()+"");
             txtPerCentComit.setText(contract.getPecentcommit()+"% theo vốn lợi nhuận");
-            txtFunds.setText(contract.getFunds()+"");
+            txtFunds.setText(Util.formatMoney(contract.getFunds())+"đ");
             txtDayFunds.setText(contract.getDateFunds());
             txtDayComit.setText(contract.getDateCommit());
             txtDay.setText(contract.getCreateDate());
             switch (contract.getStatus()){
-                case ContractFragment.STATUS_WAITING_APPROVE:
+                case AppConfig.STATUS_WAITING_APPROVE_CONTRACT:
                     txtStatus.setText("Chờ duyệt");
                     break;
-                case ContractFragment.STATUS_OPEN:
+                case AppConfig.STATUS_OPEN_CONTRACT:
                     txtStatus.setText("Thực hiện");
                     break;
-                case ContractFragment.STATUS_COMPLETE:
+                case AppConfig.STATUS_COMPLETE_CONTRACT:
                     txtStatus.setText("Hoàn thành");
                     break;
-                case ContractFragment.STATUS_OVER_DUE:
+                case AppConfig.STATUS_OVER_DUE_CONTRACT:
                     txtStatus.setText("Quá hạn");
                     break;
             }

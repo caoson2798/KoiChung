@@ -19,9 +19,5 @@
         android:id="@+id/nav_order"
         android:icon="@mipmap/ic_order2x"
         android:title="Đơn hàng" />
-    <item
-        android:id="@+id/nav_agent"
-        android:icon="@mipmap/ic_agency2x"
-        android:title="Đại lý" />
 
 </menu>

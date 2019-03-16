@@ -71,6 +71,11 @@ public class Contract {
     @Expose
     public String description;
 
+    public Contract(String code, Integer contractID) {
+        this.code = code;
+        this.contractID = contractID;
+    }
+
     public String get$id() {
         return $id;
     }

@@ -3,6 +3,7 @@ package com.example.koichung;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -72,7 +73,8 @@ public class LoginActivity extends BaseActivity {
 
             @Override
             public void onFailure(Call<LoginRespone> call, Throwable t) {
-
+                dialog.dismiss();
+                Log.d("loilogin", "onFailure: "+t.toString());
             }
         });
     }

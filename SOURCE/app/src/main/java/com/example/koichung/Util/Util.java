@@ -2,6 +2,8 @@ package com.example.koichung.Util;
 
 import com.google.gson.JsonObject;
 
+import java.text.DecimalFormat;
+
 public class Util {
     public static JsonObject jsonObject;
 
@@ -12,5 +14,27 @@ public class Util {
         jsonObject=new JsonObject();
         jsonObject.addProperty("userAPI","madara");
         jsonObject.addProperty("passAPI","madara");
+    }
+    public static String adDigitalOnDate(int day,int month,int year){
+        String dayS = "";
+        String monthS = "";
+        if (1 <= day && day <= 9) {
+            dayS = "0" + day;
+        } else {
+            dayS = day + "";
+        }
+        if (1 <= month && month <= 9) {
+            monthS = "0" + month;
+
+        } else {
+            monthS = month + "";
+        }
+        String date = new StringBuilder().append(dayS).append("/")
+                .append(monthS).append("/").append(year).toString();
+        return date;
+    }
+    public static String formatMoney(Integer money){
+        DecimalFormat format=new DecimalFormat("###,###,###");
+        return format.format(money);
     }
 }

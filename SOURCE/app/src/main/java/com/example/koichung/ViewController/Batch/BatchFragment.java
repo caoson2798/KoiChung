@@ -31,19 +31,11 @@ import static android.support.constraint.Constraints.TAG;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class BatchFragment extends FragmentWithListView  {
+public class BatchFragment extends FragmentWithListView {
     public static BatchFragment batchFragment = null;
     BatchAdapter adapter;
     ArrayList<Batch> arrData = new ArrayList<>();
     int status;
-    int sizeMenu;
-
-    public static BatchFragment getInstance() {
-        if (batchFragment == null) {
-            batchFragment = new BatchFragment();
-        }
-        return batchFragment;
-    }
 
     @Override
     protected void configAdapter() {
@@ -56,36 +48,37 @@ public class BatchFragment extends FragmentWithListView  {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.menu_batch, menu);
-        Util.baseJson();
+        baseJsonBatch(AppConfig.STATUS_ALL_BATCH);
+    }
 
+    private void baseJsonBatch(int status) {
+        Util.baseJson();
         Util.jsonObject.addProperty("userID", AppConfig.getUserID(getActivity()));
-        Util.jsonObject.addProperty("status", 0);
+        Util.jsonObject.addProperty("status", status);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        Util.baseJson();
-        Util.jsonObject.addProperty("userID", AppConfig.getUserID(getActivity()));
         switch (item.getItemId()) {
             case R.id.mnu_all:
-                Util.jsonObject.addProperty("status", 0);
+                status = AppConfig.STATUS_ALL_BATCH;
                 Log.d(TAG, "onOptionsItemSelected: đã click");
-                getDataBatch(Util.jsonObject);
+
                 break;
             case R.id.mnu_have_contracst:
-                Util.jsonObject.addProperty("status", 1);
+                status = AppConfig.STATUS_HAVAE_CONTRACT;
                 Log.d("fffd", "onOptionsItemSelected: đã click");
-                getDataBatch(Util.jsonObject);
                 break;
             case R.id.mnu_not_contract:
-                Util.jsonObject.addProperty("status", -1);
-                getDataBatch(Util.jsonObject);
+                status = AppConfig.STATUS_NOT_CONTRACT;
                 break;
             case R.id.mnu_add:
-                Intent intent=new Intent(getActivity(),AddBatchActivity.class);
+                Intent intent = new Intent(getActivity(), AddBatchActivity.class);
                 getActivity().startActivity(intent);
 
         }
+        baseJsonBatch(status);
+        getDataBatch(Util.jsonObject);
         item.setChecked(true);
         return true;
     }

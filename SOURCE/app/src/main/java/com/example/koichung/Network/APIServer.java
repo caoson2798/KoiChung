@@ -5,6 +5,7 @@ import com.example.koichung.Model.BatchRespone;
 import com.example.koichung.Model.ContractRespone;
 import com.example.koichung.Model.CreateBatchRespone;
 import com.example.koichung.Model.LoginRespone;
+import com.example.koichung.Model.OrderRespone;
 import com.google.gson.JsonObject;
 
 import retrofit2.Call;
@@ -36,5 +37,10 @@ public interface APIServer {
     @POST("api/Service/CreateBatch")
     @Headers("Content-Type:application/json")
     Call<CreateBatchRespone> createBatch(@Body JsonObject jsonObject);
+
+    //get order
+    @POST("api/Service/GetListOrder")
+    @Headers("Content-Type:application/json")
+    Call<OrderRespone> getOrder(@Body JsonObject jsonObject);
 
 }
