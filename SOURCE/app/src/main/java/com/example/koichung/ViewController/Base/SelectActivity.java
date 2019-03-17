@@ -50,7 +50,7 @@ public class SelectActivity extends BaseActivity {
     int style;
     int batchID;
     int agencyID;
-    String fromDate="";
+    String fromDate="07/02/2017";
 
 
     @Override
@@ -100,6 +100,7 @@ public class SelectActivity extends BaseActivity {
             getSupportActionBar().setTitle("Chọn hợp đồng");
             Util.jsonObject.addProperty("status",AppConfig.STATUS_ALL_CONTRACT);
             Util.jsonObject.addProperty("batchID",AppConfig.STATUS_ALL_BATCH);
+            Util.jsonObject.addProperty("agencyID",agencyID);
             Util.jsonObject.addProperty("fromDateTime",fromDate);
             getDataContract(Util.jsonObject);
 

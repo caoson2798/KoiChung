@@ -1,12 +1,228 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<android.support.v4.widget.SwipeRefreshLayout
+    android:id="@+id/sw_refresh"
+    android:background="#F2F2F2"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:padding="10dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
 
-    <TextView
-        android:textColor="@color/colorBlack"
-        android:textSize="20sp"
-        android:text="Màn hình này chưa xử lý đề nghị chuyển màn hình khác xem, ko đc cười đùa!!!!"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-</LinearLayout>
+                android:weightSum="3"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_marginRight="10dp"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_sumarry"
+                    android:layout_width="0dp"
+                    android:layout_height="80dp">
+                    <TextView
+                        android:layout_gravity="center"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="20sp"
+                        android:text="Hợp đồng"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:textStyle="bold"
+                        android:id="@+id/txt_contract_total"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="--"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="18sp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginRight="10dp"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_sumarry"
+                    android:layout_width="0dp"
+                    android:layout_height="80dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Lô hàng"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/txt_batch_total"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="--"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+                <LinearLayout
+
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_sumarry"
+                    android:layout_width="0dp"
+                    android:layout_height="80dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Đại lý"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:textStyle="bold"
+                        android:id="@+id/txt_agency_total"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="--"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="18sp" />
+                </LinearLayout>
+            </LinearLayout>
+            <RelativeLayout
+                android:id="@+id/rl_all_agency"
+                android:layout_marginTop="30dp"
+                android:padding="10dp"
+                android:background="@drawable/bg_sumarry"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/txt_agency"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_centerVertical="true"
+                    android:gravity="center"
+                    android:textSize="20dp"
+                    android:text="Tất cả đại lý"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <ImageView
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/ic_arrow_right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/rl_all_contract"
+                android:layout_marginTop="5dp"
+                android:padding="10dp"
+                android:background="@drawable/bg_sumarry"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/txt_contract"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_centerVertical="true"
+                    android:gravity="center"
+                    android:textSize="20dp"
+                    android:text="Tất cả hợp đồng"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <ImageView
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/ic_arrow_right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </RelativeLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="35dp"
+                android:layout_width="match_parent"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:focusable="false"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:singleLine="true"
+                    android:id="@+id/edt_number_order"
+                    android:background="@drawable/bg_edit"
+                    android:paddingLeft="12dp"
+                    android:hint="Số đơn trong hợp đồng"
+                    android:autofillHints="@string/app_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp" />
+
+            </android.support.design.widget.TextInputLayout>
+            <android.support.design.widget.TextInputLayout
+
+                android:layout_marginBottom="35dp"
+                android:layout_width="match_parent"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:focusable="false"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:singleLine="true"
+                    android:id="@+id/edt_money_buyed"
+                    android:background="@drawable/bg_edit"
+                    android:paddingLeft="12dp"
+                    android:hint="Tổng tiền đã bán"
+                    android:autofillHints="@string/app_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp" />
+
+            </android.support.design.widget.TextInputLayout>
+            <android.support.design.widget.TextInputLayout
+
+                android:layout_marginBottom="35dp"
+                android:layout_width="match_parent"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:focusable="false"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:singleLine="true"
+                    android:id="@+id/edt_total_funds"
+                    android:background="@drawable/bg_edit"
+                    android:paddingLeft="12dp"
+                    android:hint="Tổng vốn"
+                    android:autofillHints="@string/app_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp" />
+
+            </android.support.design.widget.TextInputLayout>
+            <android.support.design.widget.TextInputLayout
+                android:layout_marginBottom="35dp"
+                android:layout_width="match_parent"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:focusable="false"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:singleLine="true"
+                    android:id="@+id/edt_profit"
+                    android:background="@drawable/bg_edit"
+                    android:paddingLeft="12dp"
+                    android:hint="Lợi nhuận"
+                    android:autofillHints="@string/app_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp" />
+
+            </android.support.design.widget.TextInputLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+</android.support.v4.widget.SwipeRefreshLayout>

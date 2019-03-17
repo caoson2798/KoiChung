@@ -6,6 +6,8 @@ import com.example.koichung.Model.ContractRespone;
 import com.example.koichung.Model.CreateBatchRespone;
 import com.example.koichung.Model.LoginRespone;
 import com.example.koichung.Model.OrderRespone;
+import com.example.koichung.Model.ReportContractRespone;
+import com.example.koichung.Model.ReportGeneralRespone;
 import com.google.gson.JsonObject;
 
 import retrofit2.Call;
@@ -42,5 +44,14 @@ public interface APIServer {
     @POST("api/Service/GetListOrder")
     @Headers("Content-Type:application/json")
     Call<OrderRespone> getOrder(@Body JsonObject jsonObject);
+
+    //get report general
+    @POST("api/Service/ReportGeneral")
+    @Headers("Content-Type:application/json")
+    Call<ReportGeneralRespone> getGeneral(@Body JsonObject jsonObject);
+    //get report contract
+    @POST("api/Service/ReportByContract")
+    @Headers("Content-Type:application/json")
+    Call<ReportContractRespone> getSummaryContract(@Body JsonObject jsonObject);
 
 }
