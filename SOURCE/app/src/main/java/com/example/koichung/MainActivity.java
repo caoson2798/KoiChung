@@ -1,7 +1,5 @@
 package com.example.koichung;
 
-import android.app.DatePickerDialog;
-import android.app.Dialog;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -13,6 +11,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.koichung.Util.AppConfig;
+import com.example.koichung.Util.Constant;
 import com.example.koichung.ViewController.Agency.AgencyFragment;
 import com.example.koichung.ViewController.Base.BaseActivity;
 import com.example.koichung.ViewController.Base.BaseFragment;
@@ -24,7 +24,7 @@ import com.example.koichung.ViewController.Summary.SummaryFragment;
 
 public class MainActivity extends BaseActivity {
 
-    private static final int MENU_ITEM_ITEM1 = 1;
+
     private TextView txtTitle;
 
     ImageView imgLogout;
@@ -54,7 +54,7 @@ public class MainActivity extends BaseActivity {
                     getSupportActionBar().setTitle("Đơn hàng");
                     fragment=new OrderFragment();
                     break;
-                case MENU_ITEM_ITEM1:
+                case Constant.MNU_ADMIN:
                     getSupportActionBar().setTitle("Danh sách đại lý");
                     fragment = new AgencyFragment();
                     break;
@@ -73,9 +73,18 @@ public class MainActivity extends BaseActivity {
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         navigation.setSelectedItemId(R.id.nav_summary);
-        Menu menu=navigation.getMenu();
-        MenuItem menuItem=menu.add(Menu.NONE, MENU_ITEM_ITEM1, Menu.NONE, "Đại lý");
-        menuItem.setIcon(R.mipmap.ic_agency2x);
+        addMenuItem(navigation.getMenu());
+    }
+
+    private void addMenuItem(Menu menu) {
+        if (AppConfig.getRole(this)==Constant.ROLE_USER.ROLE_ADMIN.values){
+            MenuItem menuItem=menu.add(Menu.NONE, Constant.MNU_ADMIN, Menu.NONE, "Đại lý");
+            menuItem.setIcon(R.mipmap.ic_agency2x);
+        }else {
+            MenuItem menuItem=menu.add(Menu.NONE, Constant.MNU_ADMIN, Menu.NONE, "Cá nhân");
+            menuItem.setIcon(R.mipmap.ic_user3x);
+        }
+
 
     }
 

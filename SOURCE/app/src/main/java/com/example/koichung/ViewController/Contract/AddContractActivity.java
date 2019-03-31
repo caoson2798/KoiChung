@@ -116,7 +116,7 @@ public class AddContractActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(AddContractActivity.this, SelectActivity.class);
-                intent.putExtra(Constant.KEY_SELECT_TYPE, Constant.CHOSSE_BATCH);
+                intent.putExtra(Constant.KEY_SELECT_TYPE, Constant.SELECT_TYPE.CHOSSE_BATCH.Value);
                 startActivityForResult(intent, 113);
             }
         });
@@ -125,7 +125,7 @@ public class AddContractActivity extends BaseActivity {
             public void onClick(View v) {
                if (isChosseBatch){
                    Intent intent = new Intent(AddContractActivity.this, SelectActivity.class);
-                   intent.putExtra(Constant.KEY_SELECT_TYPE, Constant.CHOSSE_AGENCY);
+                   intent.putExtra(Constant.KEY_SELECT_TYPE, Constant.SELECT_TYPE.CHOSSE_AGENCY.Value);
                    intent.putExtra("batchID", batchID);
                    startActivityForResult(intent, 114);
                }else {

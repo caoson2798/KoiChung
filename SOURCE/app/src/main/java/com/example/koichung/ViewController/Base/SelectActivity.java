@@ -76,27 +76,27 @@ public class SelectActivity extends BaseActivity {
         baseJsonSelect();
         if (style == Constant.SELECT_TYPE.CREATE_BATCH.Value) {
             getSupportActionBar().setTitle("Chọn đại lý");
-            Util.jsonObject.addProperty("batchID", Constant.STATUS_ALL_BATCH);
+            Util.jsonObject.addProperty("batchID", Constant.STATUS_BATH.STATUS_ALL_BATCH.values);
             getDataAgency(Util.jsonObject);
         }
         //kiểu chọn đại lý
-        if (style == Constant.CHOSSE_AGENCY_ALL || style == Constant.CHOSSE_AGENCY) {
+        if (style == Constant.SELECT_TYPE.CHOSSE_AGENCY_ALL.Value || style == Constant.SELECT_TYPE.CHOSSE_AGENCY.Value) {
             getSupportActionBar().setTitle("Chọn đại lý");
             Util.jsonObject.addProperty("batchID", batchID);
             getDataAgency(Util.jsonObject);
         }
 
         //kiểu chọn lô hàng
-        if (style == Constant.CHOSSE_BATCH_ALL || style == Constant.CHOSSE_BATCH) {
+        if (style == Constant.SELECT_TYPE.CHOSSE_BATCH_ALL.Value || style == Constant.SELECT_TYPE.CHOSSE_BATCH.Value) {
             Util.jsonObject.addProperty("status", 0);
             getSupportActionBar().setTitle("Chọn lô");
             getDataBatch(Util.jsonObject);
         }
         //chọn hợp đồng
-        if (style == Constant.CHOSSE_CONTRACT_ALL) {
+        if (style == Constant.SELECT_TYPE.CHOSSE_CONTRACT_ALL.Value) {
             getSupportActionBar().setTitle("Chọn hợp đồng");
-            Util.jsonObject.addProperty("status", Constant.STATUS_ALL_CONTRACT);
-            Util.jsonObject.addProperty("batchID", Constant.STATUS_ALL_BATCH);
+            Util.jsonObject.addProperty("status", Constant.STATUS_CONTRACT.STATUS_ALL_CONTRACT.values);
+            Util.jsonObject.addProperty("batchID", Constant.STATUS_BATH.STATUS_ALL_BATCH.values);
             Util.jsonObject.addProperty("agencyID", agencyID);
             Util.jsonObject.addProperty("fromDateTime", fromDate);
             getDataContract(Util.jsonObject);
@@ -135,7 +135,7 @@ public class SelectActivity extends BaseActivity {
             public void onResponse(Call<BatchRespone> call, Response<BatchRespone> response) {
                 swipeRefreshLayout.setRefreshing(false);
                 arrBatch.clear();
-                if (response.body().getStatus() == 1 && response.body().getResult().size() > 0 && style == Constant.CHOSSE_BATCH_ALL) {
+                if (response.body().getStatus() == 1 && response.body().getResult().size() > 0 && style == Constant.SELECT_TYPE.CHOSSE_BATCH_ALL.Value) {
                     Batch batch = new Batch(0, "Tất cả");
                     arrBatch.add(batch);
                 }
@@ -158,13 +158,13 @@ public class SelectActivity extends BaseActivity {
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         lvSelect = findViewById(R.id.lv_select);
-        if (style == Constant.CHOSSE_AGENCY_ALL || style == Constant.CHOSSE_AGENCY || style==Constant.CREATE_BATCH) {
+        if (style == Constant.SELECT_TYPE.CHOSSE_AGENCY_ALL.Value || style == Constant.SELECT_TYPE.CHOSSE_AGENCY.Value || style==Constant.SELECT_TYPE.CREATE_BATCH.Value) {
             lvSelect.setAdapter(adapterAgency);
         }
-        if (style == Constant.CHOSSE_BATCH_ALL || style == Constant.CHOSSE_BATCH) {
+        if (style == Constant.SELECT_TYPE.CHOSSE_BATCH_ALL.Value || style == Constant.SELECT_TYPE.CHOSSE_BATCH.Value) {
             lvSelect.setAdapter(adapterBatch);
         }
-        if (style == Constant.CHOSSE_CONTRACT_ALL) {
+        if (style == Constant.SELECT_TYPE.CHOSSE_CONTRACT_ALL.Value) {
             lvSelect.setAdapter(contractAdapter);
         }
         swipeRefreshLayout.post(new Runnable() {
@@ -187,7 +187,7 @@ public class SelectActivity extends BaseActivity {
         lvSelect.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (style == Constant.CHOSSE_AGENCY_ALL || style==Constant.CHOSSE_AGENCY) {
+                if (style == Constant.SELECT_TYPE.CHOSSE_AGENCY_ALL.Value || style==Constant.SELECT_TYPE.CHOSSE_AGENCY.Value) {
                     int agencyID = arrAgency.get(position).getAgencyID();
                     String namAgency = arrAgency.get(position).getUserName();
                     Intent intent = new Intent();
@@ -196,7 +196,7 @@ public class SelectActivity extends BaseActivity {
                     setResult(113, intent);
                     finish();
                 }
-                if (style == Constant.CREATE_BATCH) {
+                if (style == Constant.SELECT_TYPE.CREATE_BATCH.Value) {
                     if (arrAgency.get(position).isCheck()) {
                         arrAgency.get(position).setCheck(false);
                     } else {
@@ -204,7 +204,7 @@ public class SelectActivity extends BaseActivity {
                     }
                     adapterAgency.notifyDataSetChanged();
                 }
-                if (style == Constant.CHOSSE_BATCH_ALL || style==Constant.CHOSSE_BATCH) {
+                if (style == Constant.SELECT_TYPE.CHOSSE_BATCH_ALL.Value || style==Constant.SELECT_TYPE.CHOSSE_BATCH.Value) {
                     String code = arrBatch.get(position).getCode();
                     Intent intent = new Intent();
                     intent.putExtra("code", code);
@@ -213,7 +213,7 @@ public class SelectActivity extends BaseActivity {
                     setResult(114, intent);
                     finish();
                 }
-                if (style == Constant.CHOSSE_CONTRACT_ALL) {
+                if (style == Constant.SELECT_TYPE.CHOSSE_CONTRACT_ALL.Value) {
                     String code = arrContract.get(position).getCode();
                     Intent intent = new Intent();
                     intent.putExtra("code", code);
@@ -237,7 +237,7 @@ public class SelectActivity extends BaseActivity {
             public void onResponse(Call<AgencyRespone> call, Response<AgencyRespone> response) {
                 swipeRefreshLayout.setRefreshing(false);
                 arrAgency.clear();
-                if (style == Constant.CHOSSE_AGENCY_ALL && response.body().getResult().size()>0) {
+                if (style == Constant.SELECT_TYPE.CHOSSE_AGENCY_ALL.Value && response.body().getResult().size()>0) {
                     Agency agency = new Agency(null, 0, "Tất cả", "Tất cả", null, "", null);
                     arrAgency.add(agency);
 
@@ -257,7 +257,7 @@ public class SelectActivity extends BaseActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        if (getIntent().getIntExtra(Constant.KEY_SELECT_TYPE, -1) == Constant.CREATE_BATCH) {
+        if (getIntent().getIntExtra(Constant.KEY_SELECT_TYPE, -1) == Constant.SELECT_TYPE.CREATE_BATCH.Value) {
             getMenuInflater().inflate(R.menu.menu_add_batch, menu);
             menu.getItem(0).setTitle("Xong");
         }

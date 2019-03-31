@@ -30,7 +30,6 @@ public class NumberTextWatcher implements TextWatcher {
 
     public void afterTextChanged(Editable s) {
         et.removeTextChangedListener(this);
-
         try {
             int inilen, endlen;
             inilen = et.getText().length();

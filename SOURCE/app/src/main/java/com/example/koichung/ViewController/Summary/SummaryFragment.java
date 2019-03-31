@@ -131,8 +131,8 @@ public class SummaryFragment extends BaseFragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), SelectActivity.class);
-                intent.putExtra(Constant.KEY_SELECT_TYPE, Constant.CHOSSE_AGENCY_ALL);
-                intent.putExtra("batchID", Constant.STATUS_ALL_BATCH);
+                intent.putExtra(Constant.KEY_SELECT_TYPE, Constant.SELECT_TYPE.CHOSSE_AGENCY_ALL.Value);
+                intent.putExtra("batchID", Constant.STATUS_BATH.STATUS_ALL_BATCH.values);
                 startActivityForResult(intent, 114);
 
             }
@@ -153,8 +153,8 @@ public class SummaryFragment extends BaseFragment {
                     builder.show();
                 }else {
                     Intent intent = new Intent(getActivity(), SelectActivity.class);
-                    intent.putExtra(Constant.KEY_SELECT_TYPE, Constant.CHOSSE_CONTRACT_ALL);
-                    intent.putExtra("batchID", Constant.STATUS_ALL_BATCH);
+                    intent.putExtra(Constant.KEY_SELECT_TYPE, Constant.SELECT_TYPE.CHOSSE_CONTRACT_ALL.Value);
+                    intent.putExtra("batchID", Constant.STATUS_BATH.STATUS_ALL_BATCH.values);
                     intent.putExtra("agencyID", agencyID);
                     startActivityForResult(intent, 113);
                 }

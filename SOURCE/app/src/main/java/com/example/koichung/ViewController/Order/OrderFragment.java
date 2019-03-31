@@ -3,6 +3,9 @@ package com.example.koichung.ViewController.Order;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.RelativeLayout;
@@ -78,8 +81,8 @@ public class OrderFragment extends FragmentWithListView {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(getActivity(), SelectActivity.class);
-                intent.putExtra(Constant.KEY_SELECT_TYPE,Constant.CHOSSE_AGENCY_ALL);
-                intent.putExtra("batchID", Constant.STATUS_ALL_BATCH);
+                intent.putExtra(Constant.KEY_SELECT_TYPE,Constant.SELECT_TYPE.CHOSSE_AGENCY_ALL.Value);
+                intent.putExtra("batchID", Constant.STATUS_BATH.STATUS_ALL_BATCH.values);
                 startActivityForResult(intent,116);
             }
         });
@@ -88,7 +91,7 @@ public class OrderFragment extends FragmentWithListView {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(getActivity(), SelectActivity.class);
-                intent.putExtra(Constant.KEY_SELECT_TYPE,Constant.CHOSSE_CONTRACT_ALL);
+                intent.putExtra(Constant.KEY_SELECT_TYPE,Constant.SELECT_TYPE.CHOSSE_CONTRACT_ALL);
                 intent.putExtra("agencyID",agencyID );
                 startActivityForResult(intent,117);
             }
@@ -164,6 +167,29 @@ public class OrderFragment extends FragmentWithListView {
         Util.jsonObject.addProperty("agencyID", agencyID);
         Util.jsonObject.addProperty("contractID", contractID);
         Util.jsonObject.addProperty("fromDate", fromDateTime);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        addMenuItem(menu);
+    }
+    private void addMenuItem(Menu menu) {
+        if (AppConfig.getRole(getActivity())==Constant.ROLE_USER.ROLE_AGNECY.values){
+            MenuItem menuItem=menu.add(Menu.NONE,Constant.MNU_ADD,Menu.NONE,"");
+            menuItem.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM | MenuItem.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW);
+            menuItem.setIcon(R.mipmap.ic_add_square3x);
+        }else {
+            return;
+        }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId()==Constant.MNU_ADD){
+
+        }
+        return super.onOptionsItemSelected(item);
 
     }
 }

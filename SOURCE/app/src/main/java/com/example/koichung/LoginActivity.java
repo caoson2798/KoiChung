@@ -63,6 +63,7 @@ public class LoginActivity extends BaseActivity {
                 dialog.dismiss();
                 if (response.body().getStatus()==1){
                     AppConfig.setUserID(LoginActivity.this,response.body().getResult().getUserID());
+                    AppConfig.setRole(LoginActivity.this,response.body().getResult().getRole());
                     Intent intent=new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(intent);
                     finish();

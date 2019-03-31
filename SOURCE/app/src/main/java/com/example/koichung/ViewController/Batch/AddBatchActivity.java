@@ -77,7 +77,7 @@ public class AddBatchActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(AddBatchActivity.this, SelectActivity.class);
-                intent.putExtra(Constant.KEY_SELECT_TYPE,Constant.CREATE_BATCH);
+                intent.putExtra(Constant.KEY_SELECT_TYPE,Constant.SELECT_TYPE.CREATE_BATCH.Value);
                 startActivityForResult(intent,114);
             }
         });

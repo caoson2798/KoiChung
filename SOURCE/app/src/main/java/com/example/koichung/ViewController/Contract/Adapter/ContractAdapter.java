@@ -9,10 +9,8 @@ import android.widget.TextView;
 
 import com.example.koichung.Model.Contract;
 import com.example.koichung.R;
-import com.example.koichung.Util.AppConfig;
 import com.example.koichung.Util.Constant;
 import com.example.koichung.Util.Util;
-import com.example.koichung.ViewController.Contract.AddContractActivity;
 
 import java.util.ArrayList;
 
@@ -81,19 +79,17 @@ public class ContractAdapter extends BaseAdapter {
             txtDayFunds.setText(contract.getDateFunds());
             txtDayComit.setText(contract.getDateCommit());
             txtDay.setText(contract.getCreateDate());
-            switch (contract.getStatus()){
-                case Constant.STATUS_WAITING_APPROVE_CONTRACT:
-                    txtStatus.setText("Chờ duyệt");
-                    break;
-                case Constant.STATUS_OPEN_CONTRACT:
-                    txtStatus.setText("Thực hiện");
-                    break;
-                case Constant.STATUS_COMPLETE_CONTRACT:
-                    txtStatus.setText("Hoàn thành");
-                    break;
-                case Constant.STATUS_OVER_DUE_CONTRACT:
-                    txtStatus.setText("Quá hạn");
-                    break;
+            if (Constant.STATUS_CONTRACT.STATUS_WAITING_APPROVE_CONTRACT.values.equals(contract.getStatus())) {
+                txtStatus.setText("Chờ duyệt");
+
+            } else if (Constant.STATUS_CONTRACT.STATUS_OPEN_CONTRACT.values.equals(contract.getStatus())) {
+                txtStatus.setText("Thực hiện");
+
+            } else if (Constant.STATUS_CONTRACT.STATUS_COMPLETE_CONTRACT.values.equals(contract.getStatus())) {
+                txtStatus.setText("Hoàn thành");
+
+            } else if (Constant.STATUS_CONTRACT.STATUS_OVER_DUE_CONTRACT.values.equals(contract.getStatus())) {
+                txtStatus.setText("Quá hạn");
             }
         }
 

@@ -33,10 +33,9 @@ import static android.support.constraint.Constraints.TAG;
  * A simple {@link Fragment} subclass.
  */
 public class BatchFragment extends FragmentWithListView {
-    public static BatchFragment batchFragment = null;
     BatchAdapter adapter;
     ArrayList<Batch> arrData = new ArrayList<>();
-    int status;
+    int status = Constant.STATUS_BATH.STATUS_ALL_BATCH.values;
 
     @Override
     protected void configAdapter() {
@@ -49,7 +48,17 @@ public class BatchFragment extends FragmentWithListView {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.menu_batch, menu);
-        baseJsonBatch(Constant.STATUS_ALL_BATCH);
+        addMenuItem(menu);
+    }
+
+    private void addMenuItem(Menu menu) {
+        if (AppConfig.getRole(getActivity())==Constant.ROLE_USER.ROLE_ADMIN.values){
+            MenuItem menuItem=menu.add(Menu.NONE,Constant.MNU_ADD,Menu.NONE,"");
+            menuItem.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM | MenuItem.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW);
+            menuItem.setIcon(R.mipmap.ic_add_square3x);
+        }else {
+            return;
+        }
     }
 
     private void baseJsonBatch(int status) {
@@ -62,20 +71,20 @@ public class BatchFragment extends FragmentWithListView {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.mnu_all:
-                status = Constant.STATUS_ALL_BATCH;
+                status = Constant.STATUS_BATH.STATUS_ALL_BATCH.values;
                 Log.d(TAG, "onOptionsItemSelected: đã click");
-
                 break;
             case R.id.mnu_have_contracst:
-                status = Constant.STATUS_HAVAE_CONTRACT;
+                status = Constant.STATUS_BATH.STATUS_HAVAE_CONTRACT.values;
                 Log.d("fffd", "onOptionsItemSelected: đã click");
                 break;
             case R.id.mnu_not_contract:
-                status = Constant.STATUS_NOT_CONTRACT;
+                status = Constant.STATUS_BATH.STATUS_NOT_CONTRACT.values;
                 break;
-            case R.id.mnu_add:
+            case Constant.MNU_ADD:
                 Intent intent = new Intent(getActivity(), AddBatchActivity.class);
                 getActivity().startActivity(intent);
+                break;
 
         }
         baseJsonBatch(status);

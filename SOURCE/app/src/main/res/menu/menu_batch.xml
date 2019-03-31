@@ -2,10 +2,6 @@
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:title=""
-        android:icon="@mipmap/ic_add_square3x"
-        app:showAsAction="ifRoom|collapseActionView"
-        android:id="@+id/mnu_add"/>
     <group
         android:checkableBehavior="single"
         app:showAsAction="always">

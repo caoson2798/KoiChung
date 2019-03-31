@@ -36,13 +36,12 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
-
 public class ContractFragment extends FragmentWithListView {
 
     public int batchID = 0;
     String fromDateTime = "08/29/2017";
-    int agencyID =0;
-    int status ;
+    int agencyID = 0;
+    int status;
     ContractAdapter adapter;
     View headerViewContract;
     TextView txtChosseDay;
@@ -78,8 +77,8 @@ public class ContractFragment extends FragmentWithListView {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        status=Constant.STATUS_ALL_CONTRACT;
-        baseJsonContract(Constant.STATUS_ALL_CONTRACT, batchID, agencyID, fromDateTime);
+        status = Constant.STATUS_CONTRACT.STATUS_ALL_CONTRACT.values;
+        baseJsonContract(Constant.STATUS_CONTRACT.STATUS_ALL_CONTRACT.values, batchID, agencyID, fromDateTime);
     }
 
     @Override
@@ -100,7 +99,7 @@ public class ContractFragment extends FragmentWithListView {
 
     private void showDate(int year, int month, int day) {
 
-        String date = Util.adDigitalOnDate(day,month,year);
+        String date = Util.adDigitalOnDate(day, month, year);
         txtChosseDay.setText(date);
         fromDateTime = date;
         baseJsonContract(status, batchID, agencyID, fromDateTime);
@@ -116,7 +115,7 @@ public class ContractFragment extends FragmentWithListView {
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), SelectActivity.class);
                 intent.putExtra("batchID", batchID);
-                intent.putExtra(Constant.KEY_SELECT_TYPE, Constant.CHOSSE_AGENCY_ALL);
+                intent.putExtra(Constant.KEY_SELECT_TYPE, Constant.SELECT_TYPE.CHOSSE_AGENCY_ALL.Value);
                 startActivityForResult(intent, 113);
             }
         });
@@ -126,7 +125,7 @@ public class ContractFragment extends FragmentWithListView {
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), SelectActivity.class);
                 intent.putExtra("status", status);
-                intent.putExtra(Constant.KEY_SELECT_TYPE, Constant.CHOSSE_BATCH_ALL);
+                intent.putExtra(Constant.KEY_SELECT_TYPE, Constant.SELECT_TYPE.CHOSSE_BATCH_ALL.Value);
                 startActivityForResult(intent, 114);
             }
         });
@@ -192,29 +191,39 @@ public class ContractFragment extends FragmentWithListView {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.menu_contract, menu);
+        addMenuItem(menu);
+    }
+
+    private void addMenuItem(Menu menu) {
+        if (AppConfig.getRole(getActivity())==Constant.ROLE_USER.ROLE_ADMIN.values){
+            MenuItem menuItem=menu.add(Menu.NONE,Constant.MNU_ADD,Menu.NONE,"");
+            menuItem.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM | MenuItem.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW);
+            menuItem.setIcon(R.mipmap.ic_add_square3x);
+        }else {
+            return;
+        }
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
         switch (item.getItemId()) {
-            case R.id.mnu_add:
-                Intent intent=new Intent(getActivity(),AddContractActivity.class);
+            case Constant.MNU_ADD:
+                Intent intent = new Intent(getActivity(), AddContractActivity.class);
                 startActivity(intent);
             case R.id.mnu_all:
-                status = Constant.STATUS_ALL_CONTRACT;
+                status = Constant.STATUS_CONTRACT.STATUS_ALL_CONTRACT.values;
                 break;
             case R.id.mnu_wating_approve:
-                status = Constant.STATUS_WAITING_APPROVE_CONTRACT;
+                status = Constant.STATUS_CONTRACT.STATUS_WAITING_APPROVE_CONTRACT.values;
                 break;
             case R.id.mnu_open:
-                status = Constant.STATUS_OPEN_CONTRACT;
+                status = Constant.STATUS_CONTRACT.STATUS_OPEN_CONTRACT.values;
                 break;
             case R.id.mnu_complete:
-                status = Constant.STATUS_COMPLETE_CONTRACT;
+                status = Constant.STATUS_CONTRACT.STATUS_COMPLETE_CONTRACT.values;
                 break;
             case R.id.mnu_over_due:
-                status = Constant.STATUS_OVER_DUE_CONTRACT;
+                status = Constant.STATUS_CONTRACT.STATUS_OVER_DUE_CONTRACT.values;
                 break;
         }
         item.setChecked(true);
