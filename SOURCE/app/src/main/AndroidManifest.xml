@@ -31,6 +31,9 @@
             android:screenOrientation="portrait"
             android:name=".MainActivity"
             android:label="@string/app_name" />
+        <activity android:name=".ViewController.Contract.DetailContract"
+            android:screenOrientation="portrait"/>
+
     </application>
 
 </manifest>

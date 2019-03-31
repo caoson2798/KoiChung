@@ -129,16 +129,13 @@ public class AddContractActivity extends BaseActivity {
                    intent.putExtra("batchID", batchID);
                    startActivityForResult(intent, 114);
                }else {
-                   Toast toast=new Toast(AddContractActivity.this);
-                   toast.setView(LayoutInflater.from(AddContractActivity.this).inflate(R.layout.toast_layot,null));
-                   toast.setDuration(Toast.LENGTH_LONG);
-                   TextView txtMsg=toast.getView().findViewById(R.id.txt_msg);
-                   txtMsg.setText("Bạn chưa chọn lô hàng");
-                   toast.show();
+                  Util.showToast("Bạn chưa chọn lô hàng",AddContractActivity.this);
                }
             }
         });
     }
+
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -293,23 +290,28 @@ public class AddContractActivity extends BaseActivity {
     }
 
     void addData(){
-        String funds= Util.convertFormatToNumber(edtFund.getText().toString());
-        String qty=Util.convertFormatToNumber(edtCount.getText().toString());
-        int percent= Integer.parseInt(edtPercent.getText().toString());
-        baseJsonCreateContracts(1,batchID, agencyID,funds,qty,typeCommit,percent,dateFunds,dateComit);
-        RetrofitClient.getCilent().create(APIServer.class).createContracts(Util.jsonObject).enqueue(new Callback<CreateContractsRespones>() {
-            @Override
-            public void onResponse(Call<CreateContractsRespones> call, Response<CreateContractsRespones> response) {
-                if (response.body().getStatus()==1){
-                    finish();
+        try {
+            String funds= Util.convertFormatToNumber(edtFund.getText().toString());
+            String qty=Util.convertFormatToNumber(edtCount.getText().toString());
+            int percent= Integer.parseInt(edtPercent.getText().toString());
+            baseJsonCreateContracts(1,batchID, agencyID,funds,qty,typeCommit,percent,dateFunds,dateComit);
+            RetrofitClient.getCilent().create(APIServer.class).createContracts(Util.jsonObject).enqueue(new Callback<CreateContractsRespones>() {
+                @Override
+                public void onResponse(Call<CreateContractsRespones> call, Response<CreateContractsRespones> response) {
+                    if (response.body().getStatus()==1){
+                        finish();
+                    }
+                    Util.showToast(response.body().getMessage(),AddContractActivity.this);
                 }
-                Toast.makeText(AddContractActivity.this,response.body().getMessage(),Toast.LENGTH_LONG).show();
-            }
 
-            @Override
-            public void onFailure(Call<CreateContractsRespones> call, Throwable t) {
-                Log.d("grgg", "onFailure: "+t.toString());
-            }
-        });
+                @Override
+                public void onFailure(Call<CreateContractsRespones> call, Throwable t) {
+                    Log.d("grgg", "onFailure: "+t.toString());
+                }
+            });
+        }catch (Exception e){
+            Util.showToast("Bạn phải nhập đủ thông tin!",this);
+        }
+
     }
 }

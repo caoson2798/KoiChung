@@ -1,5 +1,12 @@
 package com.example.koichung.Util;
 
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.koichung.R;
+import com.example.koichung.ViewController.Contract.AddContractActivity;
 import com.google.gson.JsonObject;
 
 import java.text.DecimalFormat;
@@ -43,7 +50,7 @@ public class Util {
     // chuyển định dạng chuỗi về sô: 100.000 -> 100000
     public static String convertFormatToNumber(String formated) {
 
-        String[] fragmentNumber = formated.split("\\.");
+        String[] fragmentNumber = formated.split("\\,|\\.");
         String number = null;
         StringBuilder conn=new StringBuilder();
 
@@ -52,5 +59,13 @@ public class Util {
         }
         return number;
 
+    }
+    public static void showToast(String text, Context context) {
+        Toast toast=new Toast(context);
+        toast.setView(LayoutInflater.from(context).inflate(R.layout.toast_layot,null));
+        toast.setDuration(Toast.LENGTH_LONG);
+        TextView txtMsg=toast.getView().findViewById(R.id.txt_msg);
+        txtMsg.setText(text);
+        toast.show();
     }
 }

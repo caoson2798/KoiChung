@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.DatePicker;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -94,7 +95,7 @@ public class ContractFragment extends FragmentWithListView {
         month = calendar.get(Calendar.MONTH);
         day = calendar.get(Calendar.DAY_OF_MONTH);
         showDate(year, month + 1, day);
-        setUpHeaderView();
+        addEvents();
     }
 
     private void showDate(int year, int month, int day) {
@@ -108,7 +109,14 @@ public class ContractFragment extends FragmentWithListView {
 
     }
 
-    private void setUpHeaderView() {
+    private void addEvents() {
+        lvFrag.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent=new Intent(getActivity(),DetailContract.class);
+                startActivity(intent);
+            }
+        });
         //sự chuyển màn hình cọn đại lý
         rlAgency.setOnClickListener(new View.OnClickListener() {
             @Override

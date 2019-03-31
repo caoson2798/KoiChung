@@ -6,27 +6,16 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_LOG_LEVEL" value="error" />
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="debug" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d32b6012-4370-4f98-8a6b-3323b9a0db69" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/koichung/LoginActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/koichung/LoginActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/koichung/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/koichung/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/koichung/Util/AppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/koichung/Util/AppConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/koichung/Util/Constant.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/koichung/Util/Constant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/koichung/ViewController/Base/NumberTextWatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/koichung/ViewController/Base/NumberTextWatcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/koichung/ViewController/Base/SelectActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/koichung/ViewController/Base/SelectActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/koichung/ViewController/Batch/AddBatchActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/koichung/ViewController/Batch/AddBatchActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/koichung/ViewController/Batch/BatchFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/koichung/ViewController/Batch/BatchFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/koichung/ViewController/Contract/Adapter/ContractAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/koichung/ViewController/Contract/Adapter/ContractAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/koichung/Util/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/koichung/Util/Util.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/koichung/ViewController/Contract/AddContractActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/koichung/ViewController/Contract/AddContractActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/koichung/ViewController/Contract/ContractFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/koichung/ViewController/Contract/ContractFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/koichung/ViewController/Order/OrderFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/koichung/ViewController/Order/OrderFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/koichung/ViewController/Summary/SummaryFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/koichung/ViewController/Summary/SummaryFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/menu/menu_batch.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_batch.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/menu/menu_contract.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_contract.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -83,13 +72,13 @@
     <session id="-1225531843">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="49" />
+          <entry key="project.closed" value="50" />
           <entry key="project.open.time.0" value="3" />
           <entry key="project.open.time.1" value="7" />
           <entry key="project.open.time.10" value="3" />
           <entry key="project.open.time.11" value="4" />
           <entry key="project.open.time.12" value="7" />
-          <entry key="project.open.time.13" value="3" />
+          <entry key="project.open.time.13" value="4" />
           <entry key="project.open.time.14" value="9" />
           <entry key="project.open.time.15" value="5" />
           <entry key="project.open.time.16" value="4" />
@@ -99,25 +88,25 @@
           <entry key="project.open.time.29" value="1" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="51" />
+          <entry key="project.opened" value="52" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="10" />
           <entry key="gradle" value="6" />
-          <entry key="java" value="387" />
+          <entry key="java" value="397" />
           <entry key="properties" value="2" />
-          <entry key="xml" value="150" />
+          <entry key="xml" value="152" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="10" />
           <entry key="Groovy" value="6" />
-          <entry key="JAVA" value="387" />
+          <entry key="JAVA" value="397" />
           <entry key="Properties" value="2" />
-          <entry key="XML" value="150" />
+          <entry key="XML" value="152" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -125,20 +114,20 @@
           <entry key="class" value="3" />
           <entry key="dummy" value="13" />
           <entry key="gradle" value="11" />
-          <entry key="java" value="21009" />
+          <entry key="java" value="21269" />
           <entry key="properties" value="2" />
           <entry key="txt" value="201" />
-          <entry key="xml" value="4373" />
+          <entry key="xml" value="4376" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CLASS" value="3" />
           <entry key="Groovy" value="11" />
-          <entry key="JAVA" value="21009" />
+          <entry key="JAVA" value="21269" />
           <entry key="PLAIN_TEXT" value="214" />
           <entry key="Properties" value="2" />
-          <entry key="XML" value="4373" />
+          <entry key="XML" value="4376" />
         </counts>
       </usages-collector>
     </session>
@@ -146,10 +135,22 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koichung/ViewController/Base/SelectActivity.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koichung/ViewController/Contract/DetailContract.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1106">
-              <caret line="259" column="108" selection-start-line="259" selection-start-column="108" selection-end-line="259" selection-end-column="108" />
+            <state relative-caret-position="221">
+              <caret line="13" column="82" selection-start-line="13" selection-start-column="82" selection-end-line="13" selection-end-column="82" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koichung/ViewController/Contract/ContractFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="110">
+              <caret line="171" selection-start-line="171" selection-end-line="171" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -158,10 +159,37 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koichung/ViewController/Summary/SummaryFragment.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koichung/ViewController/Contract/AddContractActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2040">
-              <caret line="156" column="91" selection-start-line="156" selection-start-column="91" selection-end-line="156" selection-end-column="91" />
+            <state relative-caret-position="358">
+              <caret line="312" column="54" selection-start-line="312" selection-start-column="54" selection-end-line="312" selection-end-column="54" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koichung/Network/APIServer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="41">
+              <caret line="60" column="34" selection-start-line="60" selection-start-column="34" selection-end-line="60" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koichung/Util/Util.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="440">
+              <caret line="64" column="49" selection-start-line="64" selection-start-column="49" selection-end-line="64" selection-end-column="49" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koichung/ViewController/Batch/BatchFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3">
+              <caret line="115" selection-start-line="115" selection-end-line="115" />
             </state>
           </provider>
         </entry>
@@ -171,9 +199,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="layoutResourceFile" />
         <option value="resourceFile" />
         <option value="Class" />
+        <option value="layoutResourceFile" />
       </list>
     </option>
   </component>
@@ -183,8 +211,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/koichung/ViewController/Agency/Adapter/AgencyAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_select.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/koichung/Model/Batch.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/koichung/ViewController/Base/BaseActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/orderfragment.xml" />
@@ -212,11 +238,9 @@
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/ic_info_black_24dp.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/toast_layot.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/bg_toast.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/koichung/Util/Util.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/koichung/Model/NewContracts.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/koichung/Network/APIServer.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/koichung/Model/CreateContractsRespones.java" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/koichung/ViewController/Base/FragmentMenuAdd.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/koichung/ViewController/Base/FragmentWithListView.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/menu/menu_contract.xml" />
@@ -226,22 +250,26 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/koichung/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/koichung/ViewController/Base/NumberTextWatcher.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/koichung/ViewController/Order/OrderFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/koichung/ViewController/Contract/ContractFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/koichung/ViewController/Contract/AddContractActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/koichung/Util/Constant.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/koichung/ViewController/Contract/Adapter/ContractAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/koichung/ViewController/Batch/BatchFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/koichung/ViewController/Batch/AddBatchActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/koichung/ViewController/Base/SelectActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/koichung/ViewController/Summary/SummaryFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/detail_contract.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/koichung/ViewController/Contract/DetailContract.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/koichung/ViewController/Contract/ContractFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/koichung/Util/Util.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/koichung/ViewController/Contract/AddContractActivity.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="333" />
-    <option name="y" value="-11" />
-    <option name="width" value="885" />
-    <option name="height" value="689" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="413" />
+    <option name="y" value="-14" />
+    <option name="width" value="697" />
+    <option name="height" value="547" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -251,8 +279,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane" />
       <pane id="PackagesPane" />
       <pane id="AndroidView">
         <subPane>
@@ -313,23 +339,14 @@
               <item name="example" type="462c0819:PsiDirectoryNode" />
               <item name="koichung" type="462c0819:PsiDirectoryNode" />
               <item name="ViewController" type="462c0819:PsiDirectoryNode" />
-              <item name="Base" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SOURCE" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-            </path>
-            <path>
-              <item name="SOURCE" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-              <item name="mipmap" type="ddeffd01:AndroidResFolderTypeNode" />
+              <item name="Contract" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -450,11 +467,11 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.2344932" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.25642964" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Build Variants" order="4" side_tool="true" />
@@ -462,13 +479,13 @@
       <window_info id="Designer" order="6" />
       <window_info id="Capture Tool" order="7" />
       <window_info anchor="bottom" id="Run" order="0" />
-      <window_info anchor="bottom" id="Logcat" order="1" weight="0.5065574" />
+      <window_info anchor="bottom" id="Logcat" order="1" weight="0.70163935" />
       <window_info anchor="bottom" id="TODO" order="2" weight="0.3295082" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.6295082" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.91014975" />
       <window_info anchor="bottom" id="Terminal" order="4" />
       <window_info anchor="bottom" id="Event Log" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="6" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Build" order="7" visible="true" weight="0.2852459" />
+      <window_info anchor="bottom" id="Build" order="7" weight="0.2852459" />
       <window_info anchor="bottom" id="Android Profiler" order="8" />
       <window_info anchor="bottom" id="Find" order="9" weight="0.3295082" />
       <window_info anchor="right" id="Capture Analysis" order="0" />
@@ -527,47 +544,20 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/koichung/ViewController/Contract/ContractFragment.java</url>
-          <line>163</line>
-          <properties />
-          <option name="timeStamp" value="75" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/koichung/ViewController/Contract/ContractFragment.java</url>
-          <line>156</line>
+          <line>164</line>
           <properties />
           <option name="timeStamp" value="76" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/koichung/ViewController/Batch/BatchFragment.java</url>
-          <line>115</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/koichung/ViewController/Contract/AddContractActivity.java</url>
+          <line>271</line>
           <properties />
-          <option name="timeStamp" value="78" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/koichung/ViewController/Batch/BatchFragment.java</url>
-          <line>117</line>
-          <properties />
-          <option name="timeStamp" value="79" />
+          <option name="timeStamp" value="82" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koichung/ViewController/Base/SuffixEditText.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1088">
-          <caret line="76" column="52" selection-start-line="76" selection-start-column="52" selection-end-line="76" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/header_view_lv_contract.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="35" selection-start-line="24" selection-end-line="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_add_batch.xml">
       <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
@@ -692,13 +682,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koichung/Network/APIServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="491">
-          <caret line="60" column="32" selection-start-line="60" selection-start-column="32" selection-end-line="60" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/toast_layot.xml">
       <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
@@ -707,22 +690,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koichung/Util/Util.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-257">
-          <caret line="14" selection-start-line="14" selection-end-line="15" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koichung/ViewController/Base/FragmentDialog.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="431">
-          <caret line="30" column="48" selection-start-line="30" selection-start-column="48" selection-end-line="30" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koichung/ViewController/Base/FragmentMenuAdd.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_add_batch.xml">
       <provider editor-type-id="android-designer2" />
@@ -759,9 +727,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="89">
           <caret line="31" column="43" selection-start-line="31" selection-start-column="43" selection-end-line="31" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -810,13 +775,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koichung/ViewController/Contract/AddContractActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="707">
-          <caret line="127" column="101" selection-start-line="127" selection-start-column="101" selection-end-line="127" selection-end-column="101" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koichung/Util/Constant.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -828,9 +786,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="389">
           <caret line="91" column="45" selection-start-line="91" selection-start-column="45" selection-end-line="91" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -838,23 +793,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="43" column="74" selection-start-line="43" selection-start-column="74" selection-end-line="43" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koichung/ViewController/Contract/ContractFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="466">
-          <caret line="225" column="81" selection-start-line="225" selection-start-column="81" selection-end-line="225" selection-end-column="81" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koichung/ViewController/Batch/BatchFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="81" column="72" selection-start-line="81" selection-start-column="72" selection-end-line="81" selection-end-column="72" />
         </state>
       </provider>
     </entry>
@@ -893,9 +831,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koichung/ViewController/Summary/SummaryFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2040">
+          <caret line="156" column="91" selection-start-line="156" selection-start-column="91" selection-end-line="156" selection-end-column="91" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/detail_contract.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider editor-type-id="android-manifest" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="33" column="71" selection-start-line="33" selection-start-column="71" selection-end-line="33" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koichung/ViewController/Base/SelectActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1106">
+        <state relative-caret-position="1764">
           <caret line="259" column="108" selection-start-line="259" selection-start-column="108" selection-end-line="259" selection-end-column="108" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -903,10 +860,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koichung/ViewController/Summary/SummaryFragment.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koichung/ViewController/Batch/BatchFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2040">
-          <caret line="156" column="91" selection-start-line="156" selection-start-column="91" selection-end-line="156" selection-end-column="91" />
+        <state relative-caret-position="3">
+          <caret line="115" selection-start-line="115" selection-end-line="115" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koichung/ViewController/Contract/DetailContract.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="82" selection-start-line="13" selection-start-column="82" selection-end-line="13" selection-end-column="82" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koichung/Network/APIServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="41">
+          <caret line="60" column="34" selection-start-line="60" selection-start-column="34" selection-end-line="60" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koichung/ViewController/Contract/ContractFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="171" selection-start-line="171" selection-end-line="171" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koichung/Util/Util.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="64" column="49" selection-start-line="64" selection-start-column="49" selection-end-line="64" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koichung/ViewController/Contract/AddContractActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="358">
+          <caret line="312" column="54" selection-start-line="312" selection-start-column="54" selection-end-line="312" selection-end-column="54" />
         </state>
       </provider>
     </entry>
