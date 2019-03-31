@@ -10,7 +10,9 @@ import android.widget.TextView;
 import com.example.koichung.Model.Contract;
 import com.example.koichung.R;
 import com.example.koichung.Util.AppConfig;
+import com.example.koichung.Util.Constant;
 import com.example.koichung.Util.Util;
+import com.example.koichung.ViewController.Contract.AddContractActivity;
 
 import java.util.ArrayList;
 
@@ -70,22 +72,26 @@ public class ContractAdapter extends BaseAdapter {
             txtAgencyID.setText(contract.getCode());
             txtAgency.setText(contract.getAgencyName());
             txtLastCount.setText(contract.getQty()+"");
-            txtPerCentComit.setText(contract.getPecentcommit()+"% theo vốn lợi nhuận");
+           if (contract.getTypecommit()==0){
+               txtPerCentComit.setText(contract.getPecentcommit()+"% theo vốn lợi nhuận");
+           }else {
+               txtPerCentComit.setText(contract.getPecentcommit()+"% theo vốn giá vốn");
+           }
             txtFunds.setText(Util.formatMoney(contract.getFunds())+"đ");
             txtDayFunds.setText(contract.getDateFunds());
             txtDayComit.setText(contract.getDateCommit());
             txtDay.setText(contract.getCreateDate());
             switch (contract.getStatus()){
-                case AppConfig.STATUS_WAITING_APPROVE_CONTRACT:
+                case Constant.STATUS_WAITING_APPROVE_CONTRACT:
                     txtStatus.setText("Chờ duyệt");
                     break;
-                case AppConfig.STATUS_OPEN_CONTRACT:
+                case Constant.STATUS_OPEN_CONTRACT:
                     txtStatus.setText("Thực hiện");
                     break;
-                case AppConfig.STATUS_COMPLETE_CONTRACT:
+                case Constant.STATUS_COMPLETE_CONTRACT:
                     txtStatus.setText("Hoàn thành");
                     break;
-                case AppConfig.STATUS_OVER_DUE_CONTRACT:
+                case Constant.STATUS_OVER_DUE_CONTRACT:
                     txtStatus.setText("Quá hạn");
                     break;
             }

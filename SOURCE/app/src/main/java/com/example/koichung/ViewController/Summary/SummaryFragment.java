@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -25,6 +24,7 @@ import com.example.koichung.Network.APIServer;
 import com.example.koichung.Network.RetrofitClient;
 import com.example.koichung.R;
 import com.example.koichung.Util.AppConfig;
+import com.example.koichung.Util.Constant;
 import com.example.koichung.Util.Util;
 import com.example.koichung.ViewController.Base.BaseFragment;
 import com.example.koichung.ViewController.Base.SelectActivity;
@@ -53,6 +53,7 @@ public class SummaryFragment extends BaseFragment {
         swipeRefreshLayout.post(new Runnable() {
             @Override
             public void run() {
+                swipeRefreshLayout.setRefreshing(true);
                 getData();
             }
         });
@@ -78,6 +79,7 @@ public class SummaryFragment extends BaseFragment {
         RetrofitClient.getCilent().create(APIServer.class).getGeneral(jsonObject).enqueue(new Callback<ReportGeneralRespone>() {
             @Override
             public void onResponse(Call<ReportGeneralRespone> call, Response<ReportGeneralRespone> response) {
+                swipeRefreshLayout.setRefreshing(false);
                 txtTotalContract.setText(response.body().getResult().getTotalContract() + "");
                 txtTotalBatch.setText(response.body().getResult().getTotalBatch() + "");
                 txtTotalAgency.setText(response.body().getResult().getTotalAgency() + "");
@@ -129,8 +131,8 @@ public class SummaryFragment extends BaseFragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), SelectActivity.class);
-                intent.putExtra(AppConfig.KEY_TPYE, AppConfig.CHOSSE_AGENCY);
-                intent.putExtra("batchID", AppConfig.STATUS_ALL_BATCH);
+                intent.putExtra(Constant.KEY_SELECT_TYPE, Constant.CHOSSE_AGENCY_ALL);
+                intent.putExtra("batchID", Constant.STATUS_ALL_BATCH);
                 startActivityForResult(intent, 114);
 
             }
@@ -151,8 +153,8 @@ public class SummaryFragment extends BaseFragment {
                     builder.show();
                 }else {
                     Intent intent = new Intent(getActivity(), SelectActivity.class);
-                    intent.putExtra(AppConfig.KEY_TPYE, AppConfig.CHOSSE_CONTRACT);
-                    intent.putExtra("batchID", AppConfig.STATUS_ALL_BATCH);
+                    intent.putExtra(Constant.KEY_SELECT_TYPE, Constant.CHOSSE_CONTRACT_ALL);
+                    intent.putExtra("batchID", Constant.STATUS_ALL_BATCH);
                     intent.putExtra("agencyID", agencyID);
                     startActivityForResult(intent, 113);
                 }
@@ -170,26 +172,33 @@ public class SummaryFragment extends BaseFragment {
             name = data.getStringExtra("nameAgency");
             agencyID = data.getIntExtra("agencyID", -2);
             isChosseAgency=true;
-            checkAllAgency(agencyID);
+            checkAll(agencyID);
             baseJsonSummary(agencyID);
 
         }
         if (requestCode == 113 && data != null) {
             name = data.getStringExtra("code");
             contractID = data.getIntExtra("contractID", -2);
-            txtContract.setText(name);
+            if (contractID==0){
+                txtContract.setText("Tất cả hợp đồng");
+            }else {
+                txtContract.setText(name);
+            }
+
         }
+
+
        // baseJsonSummary(agencyID);
         getData();
     }
-
-    private void checkAllAgency(int agencyID) {
+    // kiểm tra chọn tất cả
+    private void checkAll(int agencyID) {
         if (agencyID==0){
             txtAgency.setText("Tất cả đại lý");
             txtContract.setText("Tất cả hợp đồng");
             isChosseAgency=false;
             this.agencyID=3;
-            contractID=0;
+            this.contractID=0;
         }else {
             txtAgency.setText(name);
         }

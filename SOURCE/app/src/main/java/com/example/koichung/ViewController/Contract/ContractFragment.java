@@ -1,7 +1,6 @@
 package com.example.koichung.ViewController.Contract;
 
 import android.app.DatePickerDialog;
-import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -22,6 +21,7 @@ import com.example.koichung.Network.APIServer;
 import com.example.koichung.Network.RetrofitClient;
 import com.example.koichung.R;
 import com.example.koichung.Util.AppConfig;
+import com.example.koichung.Util.Constant;
 import com.example.koichung.Util.Util;
 import com.example.koichung.ViewController.Base.FragmentWithListView;
 import com.example.koichung.ViewController.Base.SelectActivity;
@@ -35,7 +35,6 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import static com.example.koichung.Util.AppConfig.STATUS_ALL_CONTRACT;
 
 
 public class ContractFragment extends FragmentWithListView {
@@ -43,7 +42,7 @@ public class ContractFragment extends FragmentWithListView {
     public int batchID = 0;
     String fromDateTime = "08/29/2017";
     int agencyID =0;
-    int status = 10;
+    int status ;
     ContractAdapter adapter;
     View headerViewContract;
     TextView txtChosseDay;
@@ -79,7 +78,8 @@ public class ContractFragment extends FragmentWithListView {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        baseJsonContract(STATUS_ALL_CONTRACT, batchID, agencyID, fromDateTime);
+        status=Constant.STATUS_ALL_CONTRACT;
+        baseJsonContract(Constant.STATUS_ALL_CONTRACT, batchID, agencyID, fromDateTime);
     }
 
     @Override
@@ -116,7 +116,7 @@ public class ContractFragment extends FragmentWithListView {
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), SelectActivity.class);
                 intent.putExtra("batchID", batchID);
-                intent.putExtra(AppConfig.KEY_TPYE, AppConfig.CHOSSE_AGENCY);
+                intent.putExtra(Constant.KEY_SELECT_TYPE, Constant.CHOSSE_AGENCY_ALL);
                 startActivityForResult(intent, 113);
             }
         });
@@ -126,7 +126,7 @@ public class ContractFragment extends FragmentWithListView {
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), SelectActivity.class);
                 intent.putExtra("status", status);
-                intent.putExtra(AppConfig.KEY_TPYE, AppConfig.CHOSSE_BATCH);
+                intent.putExtra(Constant.KEY_SELECT_TYPE, Constant.CHOSSE_BATCH_ALL);
                 startActivityForResult(intent, 114);
             }
         });
@@ -162,6 +162,7 @@ public class ContractFragment extends FragmentWithListView {
     protected void getData() {
         super.getData();
         getDataContract(Util.jsonObject);
+        Log.d("ffe", "getData: ");
     }
 
     private void getDataContract(JsonObject jsonObject) {
@@ -197,20 +198,23 @@ public class ContractFragment extends FragmentWithListView {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getItemId()) {
+            case R.id.mnu_add:
+                Intent intent=new Intent(getActivity(),AddContractActivity.class);
+                startActivity(intent);
             case R.id.mnu_all:
-                status = AppConfig.STATUS_ALL_CONTRACT;
+                status = Constant.STATUS_ALL_CONTRACT;
                 break;
             case R.id.mnu_wating_approve:
-                status = AppConfig.STATUS_WAITING_APPROVE_CONTRACT;
+                status = Constant.STATUS_WAITING_APPROVE_CONTRACT;
                 break;
             case R.id.mnu_open:
-                status = AppConfig.STATUS_OPEN_CONTRACT;
+                status = Constant.STATUS_OPEN_CONTRACT;
                 break;
             case R.id.mnu_complete:
-                status = AppConfig.STATUS_COMPLETE_CONTRACT;
+                status = Constant.STATUS_COMPLETE_CONTRACT;
                 break;
             case R.id.mnu_over_due:
-                status = AppConfig.STATUS_OVER_DUE_CONTRACT;
+                status = Constant.STATUS_OVER_DUE_CONTRACT;
                 break;
         }
         item.setChecked(true);
@@ -230,13 +234,10 @@ public class ContractFragment extends FragmentWithListView {
 
     }
 
-    public Dialog onCreateDialog(int id) {
-        if (id == 999) {
-            return new DatePickerDialog(getActivity(),
-                    myDateListener, year, month, day);
-        }
-        return null;
+    @Override
+    public void onResume() {
+        super.onResume();
+        baseJsonContract(status, batchID, agencyID, fromDateTime);
+        getData();
     }
-
-
 }

@@ -19,6 +19,7 @@ import com.example.koichung.Network.APIServer;
 import com.example.koichung.Network.RetrofitClient;
 import com.example.koichung.R;
 import com.example.koichung.Util.AppConfig;
+import com.example.koichung.Util.Constant;
 import com.example.koichung.Util.Util;
 import com.example.koichung.ViewController.Base.BaseActivity;
 import com.example.koichung.ViewController.Base.SelectActivity;
@@ -52,10 +53,12 @@ public class AddBatchActivity extends BaseActivity {
         getSupportActionBar().setTitle("Tạo lô mới");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+        toolbar.setNavigationIcon(R.mipmap.comeback);
         init();
     }
 
     private void init() {
+
         edtBatchID=findViewById(R.id.edt_batch_id);
         edtCount=findViewById(R.id.edt_count);
         edtRoot=findViewById(R.id.edt_root);
@@ -74,7 +77,7 @@ public class AddBatchActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(AddBatchActivity.this, SelectActivity.class);
-                intent.putExtra(AppConfig.KEY_TPYE,AppConfig.CREATE_BATCH);
+                intent.putExtra(Constant.KEY_SELECT_TYPE,Constant.CREATE_BATCH);
                 startActivityForResult(intent,114);
             }
         });

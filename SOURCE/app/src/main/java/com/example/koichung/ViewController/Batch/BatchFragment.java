@@ -15,6 +15,7 @@ import com.example.koichung.Network.APIServer;
 import com.example.koichung.Network.RetrofitClient;
 import com.example.koichung.R;
 import com.example.koichung.Util.AppConfig;
+import com.example.koichung.Util.Constant;
 import com.example.koichung.Util.Util;
 import com.example.koichung.ViewController.Base.FragmentWithListView;
 import com.example.koichung.ViewController.Batch.Adapter.BatchAdapter;
@@ -48,7 +49,7 @@ public class BatchFragment extends FragmentWithListView {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.menu_batch, menu);
-        baseJsonBatch(AppConfig.STATUS_ALL_BATCH);
+        baseJsonBatch(Constant.STATUS_ALL_BATCH);
     }
 
     private void baseJsonBatch(int status) {
@@ -61,16 +62,16 @@ public class BatchFragment extends FragmentWithListView {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.mnu_all:
-                status = AppConfig.STATUS_ALL_BATCH;
+                status = Constant.STATUS_ALL_BATCH;
                 Log.d(TAG, "onOptionsItemSelected: đã click");
 
                 break;
             case R.id.mnu_have_contracst:
-                status = AppConfig.STATUS_HAVAE_CONTRACT;
+                status = Constant.STATUS_HAVAE_CONTRACT;
                 Log.d("fffd", "onOptionsItemSelected: đã click");
                 break;
             case R.id.mnu_not_contract:
-                status = AppConfig.STATUS_NOT_CONTRACT;
+                status = Constant.STATUS_NOT_CONTRACT;
                 break;
             case R.id.mnu_add:
                 Intent intent = new Intent(getActivity(), AddBatchActivity.class);
@@ -93,6 +94,7 @@ public class BatchFragment extends FragmentWithListView {
     @Override
     public void onResume() {
         super.onResume();
+        baseJsonBatch(status);
         getData();
     }
 

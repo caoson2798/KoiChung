@@ -22,6 +22,7 @@ import com.example.koichung.Network.APIServer;
 import com.example.koichung.Network.RetrofitClient;
 import com.example.koichung.R;
 import com.example.koichung.Util.AppConfig;
+import com.example.koichung.Util.Constant;
 import com.example.koichung.Util.Util;
 import com.example.koichung.ViewController.Agency.Adapter.AgencyAdapter;
 import com.example.koichung.ViewController.Contract.Adapter.SelectBatchAdapter;
@@ -34,15 +35,12 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import static com.example.koichung.Util.AppConfig.CREATE_BATCH;
-import static com.example.koichung.Util.AppConfig.KEY_TPYE;
-
 public class SelectActivity extends BaseActivity {
     Toolbar toolbar;
     ListView lvSelect;
     ArrayList<Agency> arrAgency = new ArrayList<>();
     ArrayList<Batch> arrBatch = new ArrayList<>();
-    ArrayList<Contract> arrContract=new ArrayList<>();
+    ArrayList<Contract> arrContract = new ArrayList<>();
     SelectBatchAdapter adapterBatch;
     AgencyAdapter adapterAgency;
     SelectContractAdapter contractAdapter;
@@ -50,16 +48,16 @@ public class SelectActivity extends BaseActivity {
     int style;
     int batchID;
     int agencyID;
-    String fromDate="07/02/2017";
+    String fromDate = "07/02/2017";
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        style = getIntent().getIntExtra(AppConfig.KEY_TPYE, -1);
-        batchID =getIntent().getIntExtra("batchID",-2);
-        agencyID =getIntent().getIntExtra("agencyID",-2);
-        fromDate=getIntent().getStringExtra("fromDate");
+        style = getIntent().getIntExtra(Constant.KEY_SELECT_TYPE, -1);
+        batchID = getIntent().getIntExtra("batchID", -2);
+        agencyID = getIntent().getIntExtra("agencyID", -2);
+        fromDate = getIntent().getStringExtra("fromDate");
         View.inflate(this, R.layout.activity_select, findViewById(R.id.container));
         init();
 
@@ -76,32 +74,31 @@ public class SelectActivity extends BaseActivity {
 
     private void getData() {
         baseJsonSelect();
-        if (style == AppConfig.CREATE_BATCH) {
+        if (style == Constant.SELECT_TYPE.CREATE_BATCH.Value) {
             getSupportActionBar().setTitle("Chọn đại lý");
-
-            Util.jsonObject.addProperty("batchID",AppConfig.STATUS_ALL_BATCH);
+            Util.jsonObject.addProperty("batchID", Constant.STATUS_ALL_BATCH);
             getDataAgency(Util.jsonObject);
         }
         //kiểu chọn đại lý
-        if (style == AppConfig.CHOSSE_AGENCY) {
+        if (style == Constant.CHOSSE_AGENCY_ALL || style == Constant.CHOSSE_AGENCY) {
             getSupportActionBar().setTitle("Chọn đại lý");
-            Util.jsonObject.addProperty("batchID",batchID);
+            Util.jsonObject.addProperty("batchID", batchID);
             getDataAgency(Util.jsonObject);
         }
 
         //kiểu chọn lô hàng
-        if (style == AppConfig.CHOSSE_BATCH) {
-            Util.jsonObject.addProperty("status",0);
+        if (style == Constant.CHOSSE_BATCH_ALL || style == Constant.CHOSSE_BATCH) {
+            Util.jsonObject.addProperty("status", 0);
             getSupportActionBar().setTitle("Chọn lô");
             getDataBatch(Util.jsonObject);
         }
         //chọn hợp đồng
-        if (style==AppConfig.CHOSSE_CONTRACT){
+        if (style == Constant.CHOSSE_CONTRACT_ALL) {
             getSupportActionBar().setTitle("Chọn hợp đồng");
-            Util.jsonObject.addProperty("status",AppConfig.STATUS_ALL_CONTRACT);
-            Util.jsonObject.addProperty("batchID",AppConfig.STATUS_ALL_BATCH);
-            Util.jsonObject.addProperty("agencyID",agencyID);
-            Util.jsonObject.addProperty("fromDateTime",fromDate);
+            Util.jsonObject.addProperty("status", Constant.STATUS_ALL_CONTRACT);
+            Util.jsonObject.addProperty("batchID", Constant.STATUS_ALL_BATCH);
+            Util.jsonObject.addProperty("agencyID", agencyID);
+            Util.jsonObject.addProperty("fromDateTime", fromDate);
             getDataContract(Util.jsonObject);
 
         }
@@ -114,8 +111,8 @@ public class SelectActivity extends BaseActivity {
 
                 swipeRefreshLayout.setRefreshing(false);
                 arrContract.clear();
-                if (response.body().getStatus() == 1 && response.body().getResult().size()>0) {
-                    Contract contract=new Contract("Tất cả",0);
+                if (response.body().getStatus() == 1 && response.body().getResult().size() > 0) {
+                    Contract contract = new Contract("Tất cả", 0);
                     arrContract.add(contract);
                     arrContract.addAll(response.body().getResult());
                     contractAdapter.notifyDataSetChanged();
@@ -138,14 +135,12 @@ public class SelectActivity extends BaseActivity {
             public void onResponse(Call<BatchRespone> call, Response<BatchRespone> response) {
                 swipeRefreshLayout.setRefreshing(false);
                 arrBatch.clear();
-                if (response.body().getStatus() == 1 && response.body().getResult().size()>0) {
-                    Batch batch=new Batch(0,"Tất cả");
+                if (response.body().getStatus() == 1 && response.body().getResult().size() > 0 && style == Constant.CHOSSE_BATCH_ALL) {
+                    Batch batch = new Batch(0, "Tất cả");
                     arrBatch.add(batch);
-                    arrBatch.addAll(response.body().getResult());
-                    adapterBatch.notifyDataSetChanged();
-                } else {
-                    Toast.makeText(SelectActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
                 }
+                arrBatch.addAll(response.body().getResult());
+                adapterBatch.notifyDataSetChanged();
             }
 
             @Override
@@ -156,20 +151,20 @@ public class SelectActivity extends BaseActivity {
     }
 
     private void init() {
-        swipeRefreshLayout=findViewById(R.id.sw_refresh);
+        swipeRefreshLayout = findViewById(R.id.sw_refresh);
         adapterAgency = new AgencyAdapter(arrAgency, this);
-        adapterBatch=new SelectBatchAdapter(arrBatch,this);
-        contractAdapter=new SelectContractAdapter(arrContract,this);
+        adapterBatch = new SelectBatchAdapter(arrBatch, this);
+        contractAdapter = new SelectContractAdapter(arrContract, this);
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         lvSelect = findViewById(R.id.lv_select);
-        if (style== AppConfig.CHOSSE_AGENCY || style==AppConfig.CREATE_BATCH){
+        if (style == Constant.CHOSSE_AGENCY_ALL || style == Constant.CHOSSE_AGENCY || style==Constant.CREATE_BATCH) {
             lvSelect.setAdapter(adapterAgency);
         }
-        if (style== AppConfig.CHOSSE_BATCH){
+        if (style == Constant.CHOSSE_BATCH_ALL || style == Constant.CHOSSE_BATCH) {
             lvSelect.setAdapter(adapterBatch);
         }
-        if (style==AppConfig.CHOSSE_CONTRACT){
+        if (style == Constant.CHOSSE_CONTRACT_ALL) {
             lvSelect.setAdapter(contractAdapter);
         }
         swipeRefreshLayout.post(new Runnable() {
@@ -192,7 +187,7 @@ public class SelectActivity extends BaseActivity {
         lvSelect.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (style == AppConfig.CHOSSE_AGENCY) {
+                if (style == Constant.CHOSSE_AGENCY_ALL || style==Constant.CHOSSE_AGENCY) {
                     int agencyID = arrAgency.get(position).getAgencyID();
                     String namAgency = arrAgency.get(position).getUserName();
                     Intent intent = new Intent();
@@ -201,7 +196,7 @@ public class SelectActivity extends BaseActivity {
                     setResult(113, intent);
                     finish();
                 }
-                if (style == AppConfig.CREATE_BATCH) {
+                if (style == Constant.CREATE_BATCH) {
                     if (arrAgency.get(position).isCheck()) {
                         arrAgency.get(position).setCheck(false);
                     } else {
@@ -209,19 +204,20 @@ public class SelectActivity extends BaseActivity {
                     }
                     adapterAgency.notifyDataSetChanged();
                 }
-                if (style== AppConfig.CHOSSE_BATCH){
-                    String code=arrBatch.get(position).getCode();
+                if (style == Constant.CHOSSE_BATCH_ALL || style==Constant.CHOSSE_BATCH) {
+                    String code = arrBatch.get(position).getCode();
                     Intent intent = new Intent();
                     intent.putExtra("code", code);
-                    intent.putExtra("batchID",arrBatch.get(position).getBatchID());
+                    intent.putExtra("batchID", arrBatch.get(position).getBatchID());
+                    intent.putExtra("count",arrBatch.get(position).getLastCount());
                     setResult(114, intent);
                     finish();
                 }
-                if (style==AppConfig.CHOSSE_CONTRACT){
-                    String code=arrContract.get(position).getCode();
+                if (style == Constant.CHOSSE_CONTRACT_ALL) {
+                    String code = arrContract.get(position).getCode();
                     Intent intent = new Intent();
                     intent.putExtra("code", code);
-                    intent.putExtra("contractID",arrContract.get(position).getContractID());
+                    intent.putExtra("contractID", arrContract.get(position).getContractID());
                     setResult(117, intent);
                     finish();
                 }
@@ -240,24 +236,20 @@ public class SelectActivity extends BaseActivity {
             @Override
             public void onResponse(Call<AgencyRespone> call, Response<AgencyRespone> response) {
                 swipeRefreshLayout.setRefreshing(false);
-                if (response.body().getStatus() == 1) {
-                    arrAgency.clear();
-                    if (style == AppConfig.CHOSSE_AGENCY && response.body().getResult().size()>0) {
-                        Agency agency = new Agency(null, 0, "Tất cả", "Tất cả", null, "", null);
-                        arrAgency.add(agency);
-                    }
-                    if (getIntent().getIntExtra(KEY_TPYE, -1) == CREATE_BATCH) {
-                    }
-                    arrAgency.addAll(response.body().getResult());
-                    adapterAgency.notifyDataSetChanged();
-                } else {
-                    Toast.makeText(SelectActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                arrAgency.clear();
+                if (style == Constant.CHOSSE_AGENCY_ALL && response.body().getResult().size()>0) {
+                    Agency agency = new Agency(null, 0, "Tất cả", "Tất cả", null, "", null);
+                    arrAgency.add(agency);
+
                 }
+                arrAgency.addAll(response.body().getResult());
+                adapterAgency.notifyDataSetChanged();
 
             }
 
             @Override
             public void onFailure(Call<AgencyRespone> call, Throwable t) {
+                Log.d("ffrfr", "onFailure: "+t.toString());
             }
         });
     }
@@ -265,7 +257,7 @@ public class SelectActivity extends BaseActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        if (getIntent().getIntExtra(AppConfig.KEY_TPYE, -1) == AppConfig.CREATE_BATCH) {
+        if (getIntent().getIntExtra(Constant.KEY_SELECT_TYPE, -1) == Constant.CREATE_BATCH) {
             getMenuInflater().inflate(R.menu.menu_add_batch, menu);
             menu.getItem(0).setTitle("Xong");
         }
@@ -292,7 +284,8 @@ public class SelectActivity extends BaseActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-    void baseJsonSelect(){
+
+    void baseJsonSelect() {
         Util.baseJson();
         Util.jsonObject.addProperty("userID", AppConfig.getUserID(this));
     }

@@ -15,6 +15,7 @@ import com.example.koichung.Network.APIServer;
 import com.example.koichung.Network.RetrofitClient;
 import com.example.koichung.R;
 import com.example.koichung.Util.AppConfig;
+import com.example.koichung.Util.Constant;
 import com.example.koichung.Util.Util;
 import com.example.koichung.ViewController.Base.FragmentWithListView;
 import com.example.koichung.ViewController.Base.SelectActivity;
@@ -77,8 +78,8 @@ public class OrderFragment extends FragmentWithListView {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(getActivity(), SelectActivity.class);
-                intent.putExtra(AppConfig.KEY_TPYE,AppConfig.CHOSSE_AGENCY);
-                intent.putExtra("batchID", AppConfig.STATUS_ALL_BATCH);
+                intent.putExtra(Constant.KEY_SELECT_TYPE,Constant.CHOSSE_AGENCY_ALL);
+                intent.putExtra("batchID", Constant.STATUS_ALL_BATCH);
                 startActivityForResult(intent,116);
             }
         });
@@ -87,7 +88,7 @@ public class OrderFragment extends FragmentWithListView {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(getActivity(), SelectActivity.class);
-                intent.putExtra(AppConfig.KEY_TPYE,AppConfig.CHOSSE_CONTRACT);
+                intent.putExtra(Constant.KEY_SELECT_TYPE,Constant.CHOSSE_CONTRACT_ALL);
                 intent.putExtra("agencyID",agencyID );
                 startActivityForResult(intent,117);
             }

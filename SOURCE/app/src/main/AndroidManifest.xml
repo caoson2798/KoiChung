@@ -11,17 +11,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ViewController.Batch.AddBatchActivity"></activity>
-        <activity android:name=".ViewController.Base.SelectActivity" />
-        <activity android:name=".SplashActivity">
+        <activity android:name=".ViewController.Contract.AddContractActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".ViewController.Batch.AddBatchActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ViewController.Base.SelectActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".SplashActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity" />
+        <activity android:name=".LoginActivity"
+            android:screenOrientation="portrait"/>
         <activity
+            android:screenOrientation="portrait"
             android:name=".MainActivity"
             android:label="@string/app_name" />
     </application>

@@ -4,6 +4,7 @@ import com.example.koichung.Model.AgencyRespone;
 import com.example.koichung.Model.BatchRespone;
 import com.example.koichung.Model.ContractRespone;
 import com.example.koichung.Model.CreateBatchRespone;
+import com.example.koichung.Model.CreateContractsRespones;
 import com.example.koichung.Model.LoginRespone;
 import com.example.koichung.Model.OrderRespone;
 import com.example.koichung.Model.ReportContractRespone;
@@ -53,5 +54,11 @@ public interface APIServer {
     @POST("api/Service/ReportByContract")
     @Headers("Content-Type:application/json")
     Call<ReportContractRespone> getSummaryContract(@Body JsonObject jsonObject);
+
+    //create contracts
+    @POST("api/Service/CreateContract")
+    @Headers("Content-Type:application/json")
+    Call<CreateContractsRespones> createContracts(@Body JsonObject jsonObject);
+
 
 }

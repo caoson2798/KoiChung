@@ -9,6 +9,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -23,11 +25,6 @@ import com.example.koichung.R;
 public abstract class FragmentWithListView extends BaseFragment {
     View mRootView;
     protected ListView lvFrag;
-    public static final int ITEM_ALL=1;
-    public static final int ITEM_HAVE_CONTRACT=2;
-    public static final int ITEM_NOT_CONTRACT=3;
-    FloatingActionButton fab;
-    public int tpye;
     public SwipeRefreshLayout swipeRefreshLayout;
     public FragmentWithListView() {
         // Required empty public constructor
