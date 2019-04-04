@@ -2,6 +2,7 @@ package com.example.koichung.Network;
 
 import com.example.koichung.Model.AgencyRespone;
 import com.example.koichung.Model.BatchRespone;
+import com.example.koichung.Model.ChangeStatusContractRespone;
 import com.example.koichung.Model.ContractRespone;
 import com.example.koichung.Model.CreateBatchRespone;
 import com.example.koichung.Model.CreateContractsRespones;
@@ -59,6 +60,11 @@ public interface APIServer {
     @POST("api/Service/CreateContract")
     @Headers("Content-Type:application/json")
     Call<CreateContractsRespones> createContracts(@Body JsonObject jsonObject);
+
+    //change status contract
+    @POST("api/Service/ChangeStatusContract")
+    @Headers("Content-Type:application/json")
+    Call<ChangeStatusContractRespone> chaneStatusContract(@Body JsonObject jsonObject);
 
 
 }

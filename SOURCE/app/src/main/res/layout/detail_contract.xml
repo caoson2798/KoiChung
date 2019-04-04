@@ -1,6 +1,358 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <LinearLayout
+        android:paddingTop="20dp"
+        android:padding="10dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-</android.support.constraint.ConstraintLayout>
+        <TableLayout
+            android:stretchColumns="*"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:textStyle="bold"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="18sp"
+                    android:text="Mã hợp đồng: "
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    />
+                <TextView
+                    android:id="@+id/txt_contract_id"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="18sp"
+                    android:text="SON12"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    />
+            </TableRow>
+
+            <TableRow
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:textStyle="bold"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="18sp"
+                    android:text="Người phụ trách/đại lý: "
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    />
+                <TextView
+                    android:id="@+id/txt_contract_name"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="18sp"
+                    android:text="SON12"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    />
+            </TableRow>
+            <TableRow
+
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+
+                    android:textColor="@color/colorBlack"
+                    android:textSize="15sp"
+                    android:text="Số lượng: "
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    />
+                <TextView
+                    android:textStyle="bold"
+                    android:id="@+id/txt_count"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="15sp"
+                    android:text="SON12"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    />
+            </TableRow>
+            <TableRow
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:textColor="@color/colorBlack"
+                    android:textSize="15sp"
+                    android:text="Số lượng đã bán: "
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    />
+                <TextView
+                    android:textStyle="bold"
+                    android:id="@+id/txt_count_buyed"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="15sp"
+                    android:text="21"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    />
+            </TableRow>
+            <TableRow
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+
+                    android:textColor="@color/colorBlack"
+                    android:textSize="15sp"
+                    android:text="Số lượng còn lại: "
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    />
+                <TextView
+                    android:textStyle="bold"
+                    android:id="@+id/txt_"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="15sp"
+                    android:text="32"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    />
+            </TableRow>
+            <TableRow
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+
+                    android:textColor="@color/colorBlack"
+                    android:textSize="15sp"
+                    android:text="Tiền vốn: "
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    />
+                <TextView
+                    android:textStyle="bold"
+                    android:id="@+id/txt_funds"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="15sp"
+                    android:text="20000"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    />
+            </TableRow>
+            <TableRow
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+
+                    android:textColor="@color/colorBlack"
+                    android:textSize="15sp"
+                    android:text="Tiền đã bán: "
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    />
+                <TextView
+                    android:textStyle="bold"
+                    android:id="@+id/txt_money_buyed"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="15sp"
+                    android:text="SON12"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    />
+            </TableRow>
+            <TableRow
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+
+                    android:textColor="@color/colorBlack"
+                    android:textSize="15sp"
+                    android:text="Cam kết hoàn vốn: "
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    />
+                <TextView
+                    android:textStyle="bold"
+                    android:id="@+id/txt_percent_commit"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="15sp"
+                    android:text="SON12"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    />
+            </TableRow>
+            <TableRow
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+
+                    android:textColor="@color/colorBlack"
+                    android:textSize="15sp"
+                    android:text="Ngày hoàn vốn: "
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    />
+                <TextView
+                    android:textStyle="bold"
+                    android:id="@+id/txt_day_comit"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="15sp"
+                    android:text="SON12"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    />
+            </TableRow>
+            <TableRow
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+
+                    android:textColor="@color/colorBlack"
+                    android:textSize="15sp"
+                    android:text="Ngày hoàn lợi nhuận: "
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    />
+                <TextView
+                    android:textStyle="bold"
+                    android:id="@+id/txt_day_funds"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="15sp"
+                    android:text="SON12"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    />
+            </TableRow>
+            <TableRow
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+
+                    android:textColor="@color/colorBlack"
+                    android:textSize="15sp"
+                    android:text="Ngày tạo hợp đồng: "
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    />
+                <TextView
+                    android:textStyle="bold"
+                    android:id="@+id/txt_create_day"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="15sp"
+                    android:text="SON12"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    />
+            </TableRow>
+            <TableRow
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+
+                    android:textColor="@color/colorBlack"
+                    android:textSize="15sp"
+                    android:text="Trạng thái: "
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    />
+                <TextView
+                    android:textStyle="bold"
+                    android:id="@+id/txt_status"
+                    android:textColor="#EEFF61"
+                    android:textSize="13sp"
+                    android:text="SON12"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    />
+            </TableRow>
+            <TableRow
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:textColor="@color/colorBlack"
+                    android:textSize="15sp"
+                    android:text="Hiển thị trên website"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    />
+
+                <Switch
+                    android:id="@+id/sw_show_web"
+                    android:clickable="false"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </TableRow>
+        </TableLayout>
+        <Button
+            android:id="@+id/btn_fisnh_contract"
+            android:visibility="gone"
+            android:textColor="@color/colorWhite"
+            android:background="@drawable/bg_btn"
+            android:text="Hoàn thành hợp đồng"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:textColor="@color/colorWhite"
+                android:id="@+id/btn_update"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/bg_btn"
+                android:text="Cập nhật"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+            <Button
+                android:id="@+id/btn_del"
+                android:textColor="@color/colorWhite"
+                android:background="@drawable/bg_btn"
+                android:text="Xóa"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:visibility="gone"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:textColor="@color/colorWhite"
+                android:id="@+id/btn_cancel"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/bg_btn"
+                android:text="Hủy"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+            <Button
+                android:id="@+id/btn_confirm"
+                android:textColor="@color/colorWhite"
+                android:background="@drawable/bg_btn"
+                android:text="Duyệt"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>
