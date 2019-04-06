@@ -42,7 +42,7 @@ public class Util {
         return date;
     }
 
-    public static String formatMoney(Integer money) {
+    public static String formatMoney(long money) {
         DecimalFormat format = new DecimalFormat("###,###,###");
         return format.format(money);
     }

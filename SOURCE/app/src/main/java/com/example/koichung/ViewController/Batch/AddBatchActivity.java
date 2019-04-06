@@ -93,6 +93,7 @@ public class AddBatchActivity extends BaseActivity {
             }else {
                 StringBuffer listAgency=new StringBuffer();
                 for (int i = 0; i <arrSelected.size() ; i++) {
+                    if (arrSelected.get(i).isCheck())
                     listAgency.append(arrSelected.get(i).getName()+", ");
                     arrAgencyID.add(arrSelected.get(i).getAgencyID());
                 }

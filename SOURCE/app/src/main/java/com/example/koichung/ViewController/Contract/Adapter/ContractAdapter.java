@@ -70,7 +70,7 @@ public class ContractAdapter extends BaseAdapter {
             txtAgencyID.setText(contract.getCode());
             txtAgency.setText(contract.getAgencyName());
             txtLastCount.setText(contract.getQty()+"");
-           if (contract.getTypecommit()==0){
+           if (contract.getTypecommit()==Constant.TYPE_COMIT_CONTRACT.TYPE_PROFIT.Value){
                txtPerCentComit.setText(contract.getPecentcommit()+"% theo vốn lợi nhuận");
            }else {
                txtPerCentComit.setText(contract.getPecentcommit()+"% theo vốn giá vốn");
@@ -79,17 +79,19 @@ public class ContractAdapter extends BaseAdapter {
             txtDayFunds.setText(contract.getDateFunds());
             txtDayComit.setText(contract.getDateCommit());
             txtDay.setText(contract.getCreateDate());
-            if (Constant.STATUS_CONTRACT.STATUS_WAITING_APPROVE_CONTRACT.values.equals(contract.getStatus())) {
+            if (Constant.STATUS_CONTRACT.STATUS_WAITING_APPROVE_CONTRACT.values==(contract.getStatus())) {
                 txtStatus.setText("Chờ duyệt");
 
-            } else if (Constant.STATUS_CONTRACT.STATUS_OPEN_CONTRACT.values.equals(contract.getStatus())) {
+            } else if (Constant.STATUS_CONTRACT.STATUS_OPEN_CONTRACT.values==(contract.getStatus())) {
                 txtStatus.setText("Thực hiện");
 
-            } else if (Constant.STATUS_CONTRACT.STATUS_COMPLETE_CONTRACT.values.equals(contract.getStatus())) {
+            } else if (Constant.STATUS_CONTRACT.STATUS_COMPLETE_CONTRACT.values==(contract.getStatus())) {
                 txtStatus.setText("Hoàn thành");
 
-            } else if (Constant.STATUS_CONTRACT.STATUS_OVER_DUE_CONTRACT.values.equals(contract.getStatus())) {
+            } else if (Constant.STATUS_CONTRACT.STATUS_OVER_DUE_CONTRACT.values==(contract.getStatus())) {
                 txtStatus.setText("Quá hạn");
+            }else {
+                txtStatus.setText("Hủy");
             }
         }
 

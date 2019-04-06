@@ -43,7 +43,7 @@ public class AddContractActivity extends BaseActivity {
     RelativeLayout rlBatch, rlAgency;
     TextView txtBatch, txtAgency, txtDayFunds, txtDayProfit;
     RadioButton rbProfit, rbFunds;
-    int lastCount = 0;
+    long lastCount = 0;
     NumberTextWatcher countWatcher, fundsWatcher;
     TextWatcher textWatcherPercent;
     int batchID = 0;
@@ -198,7 +198,44 @@ public class AddContractActivity extends BaseActivity {
     private void setUpView() {
         edtCount.setSuffix("/" + lastCount);
         countWatcher = new NumberTextWatcher(edtCount);
-        edtCount.addTextChangedListener(countWatcher);
+        edtCount.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (s.toString().isEmpty()){
+                    return;
+                }
+                edtCount.removeTextChangedListener(this);
+                int inilen, endlen;
+                inilen = edtCount.getText().length();
+                int cp = edtCount.getSelectionStart();
+                long dem = Long.parseLong(Util.convertFormatToNumber(s.toString()));
+                if (dem>lastCount){
+                    edtCount.setText(Util.formatMoney(lastCount));
+                }else {
+                    edtCount.setText(Util.formatMoney(dem));
+                }
+
+                endlen=edtCount.getText().length();
+                int sel = (cp + (endlen - inilen));
+                if (sel > 0 && sel <= edtCount.getText().length()) {
+                    edtCount.setSelection(sel);
+                } else {
+                    // place cursor at the end?
+                    edtCount.setSelection(edtCount.getText().length() - 1);
+                }
+
+                edtCount.addTextChangedListener(this);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
         fundsWatcher = new NumberTextWatcher(edtFund);
         edtFund.addTextChangedListener(fundsWatcher);
         textWatcherPercent = new TextWatcher() {
@@ -209,7 +246,6 @@ public class AddContractActivity extends BaseActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
                 int percent;
                 if (s.toString().length() > 0) {
                     percent = Integer.parseInt(s.toString());

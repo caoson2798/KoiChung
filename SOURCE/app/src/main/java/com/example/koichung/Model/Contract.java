@@ -3,7 +3,9 @@ package com.example.koichung.Model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Contract {
+import java.io.Serializable;
+
+public class Contract implements Serializable {
     @SerializedName("$id")
     @Expose
     public String $id;

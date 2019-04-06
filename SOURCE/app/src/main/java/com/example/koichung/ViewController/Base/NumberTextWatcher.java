@@ -14,7 +14,7 @@ public class NumberTextWatcher implements TextWatcher {
     private DecimalFormat df;
     private DecimalFormat dfnd;
     private boolean hasFractionalPart;
-
+//    boolean isHandleTextChange = true;
     private EditText et;
 
     public NumberTextWatcher(EditText et) {
@@ -29,6 +29,7 @@ public class NumberTextWatcher implements TextWatcher {
     private static final String TAG = "NumberTextWatcher";
 
     public void afterTextChanged(Editable s) {
+
         et.removeTextChangedListener(this);
         try {
             int inilen, endlen;

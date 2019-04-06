@@ -113,7 +113,9 @@ public class ContractFragment extends FragmentWithListView {
         lvFrag.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if (position==0) return;
                 Intent intent=new Intent(getActivity(),DetailContract.class);
+                intent.putExtra("detailContract",arrData.get(position-1));
                 startActivity(intent);
             }
         });
